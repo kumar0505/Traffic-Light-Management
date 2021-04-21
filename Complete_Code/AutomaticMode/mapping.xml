@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/TrafficLightManagement/KCG/config.txt
+** Generation date: 2020-06-09T12:22:14
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="D:/TrafficLightManagement/KCG/scade_model_without_unused.scade"/>
+    <option name="probes" value="#off#"/>
+    <option name="debug" value="#off#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="D:/TrafficLightManagement/KCG"/>
+    <option name="target" value="C"/>
+    <option name="root" value="TrafficLightController::AutomaticMode"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <package id="14" name="TrafficLightController">
+      <enum id="15" name="TRAFFIC_PHASE_Type">
+        <value id="16" name="LIGHT_TRAFFIC_PHASE" default="false"/>
+        <value id="17" name="MODERATE_TRAFFIC_PHASE" default="false"/>
+        <value id="18" name="PEAK_TRAFFIC_PHASE" default="false"/>
+      </enum>
+      <type id="19" name="int" imported="false" type="3"/>
+      <operator id="20" name="AutomaticMode" imported="false" root="true" expanded="false">
+        <input id="21" name="Hour" clock="false" type="19"/>
+        <input id="22" name="Min" clock="false" type="19"/>
+        <output id="23" name="TrafficPhase" clock="false" type="15"/>
+        <automaton id="24" name="AutomaticMode">
+          <state id="25" name="AutomaticMode" initial="true" final="false" default="false">
+            <automaton id="26" name="PhaseTransition">
+              <state id="27" name="LightTrafficPhase" initial="true" final="false" default="false">
+                <fork id="28" name="1" kind="strong">
+                  <transition id="29" dest="32"/>
+                </fork>
+                <fork id="30" name="2" kind="strong">
+                  <transition id="31" dest="37"/>
+                </fork>
+              </state>
+              <state id="32" name="ModerateTrafficMode" initial="false" final="false" default="false">
+                <fork id="33" name="1" kind="strong">
+                  <transition id="34" dest="37"/>
+                </fork>
+                <fork id="35" name="2" kind="strong">
+                  <transition id="36" dest="27"/>
+                </fork>
+              </state>
+              <state id="37" name="PeakTrafficMode" initial="false" final="false" default="false">
+                <fork id="38" name="1" kind="strong">
+                  <transition id="39" dest="32"/>
+                </fork>
+                <fork id="40" name="2" kind="strong">
+                  <transition id="41" dest="27"/>
+                </fork>
+              </state>
+            </automaton>
+          </state>
+        </automaton>
+      </operator>
+    </package>
+  </model>
+  <generated>
+    <c>
+      <file id="42" name="AutomaticMode_TrafficLightController.h">
+        <function id="43" name="AutomaticMode_init_TrafficLightController">
+          <parameter id="44" name="outC" type="50" pointer="true"/>
+        </function>
+        <function id="45" name="AutomaticMode_reset_TrafficLightController">
+          <parameter id="46" name="outC" type="50" pointer="true"/>
+        </function>
+        <function id="47" name="AutomaticMode_TrafficLightController">
+          <parameter id="48" name="inC" type="53" pointer="true"/>
+          <parameter id="49" name="outC" type="50" pointer="true"/>
+        </function>
+        <struct id="50" name="outC_AutomaticMode_TrafficLightController">
+          <field id="51" name="TrafficPhase" type="74" pointer="false"/>
+          <field id="52" name="PhaseTransition_state_nxt_AutomaticMode_AutomaticMode" type="58" pointer="false"/>
+        </struct>
+        <struct id="53" name="inC_AutomaticMode_TrafficLightController">
+          <field id="54" name="Hour" type="57" pointer="false"/>
+          <field id="55" name="Min" type="57" pointer="false"/>
+        </struct>
+      </file>
+      <file id="56" name="kcg_types.h">
+        <typedef id="57" name="int_TrafficLightController" aliasType="101"/>
+        <enum id="58" name="SSM_ST_PhaseTransition_AutomaticMode_AutomaticMode"
+            tagName="kcg_tag_SSM_ST_PhaseTransition_AutomaticMode_AutomaticMode">
+          <value id="59" name="SSM_st_LightTrafficPhase_PhaseTransition_AutomaticMode_AutomaticMode"/>
+          <value id="60" name="SSM_st_ModerateTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+          <value id="61" name="SSM_st_PeakTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+        </enum>
+        <enum id="62" name="SSM_TR_PhaseTransition_AutomaticMode_AutomaticMode"
+            tagName="kcg_tag_SSM_TR_PhaseTransition_AutomaticMode_AutomaticMode">
+          <value id="63" name="SSM_TR_no_trans_PhaseTransition_AutomaticMode_AutomaticMode"/>
+          <value id="64"
+              name="SSM_TR_LightTrafficPhase_ModerateTrafficMode_1_LightTrafficPhase_PhaseTransition_AutomaticMode_AutomaticMode"/>
+          <value id="65"
+              name="SSM_TR_LightTrafficPhase_PeakTrafficMode_2_LightTrafficPhase_PhaseTransition_AutomaticMode_AutomaticMode"/>
+          <value id="66"
+              name="SSM_TR_ModerateTrafficMode_PeakTrafficMode_1_ModerateTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+          <value id="67"
+              name="SSM_TR_ModerateTrafficMode_LightTrafficPhase_2_ModerateTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+          <value id="68"
+              name="SSM_TR_PeakTrafficMode_ModerateTrafficMode_1_PeakTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+          <value id="69"
+              name="SSM_TR_PeakTrafficMode_LightTrafficPhase_2_PeakTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+        </enum>
+        <enum id="70" name="SSM_ST_AutomaticMode" tagName="kcg_tag_SSM_ST_AutomaticMode">
+          <value id="71" name="SSM_st_AutomaticMode_AutomaticMode"/>
+        </enum>
+        <enum id="72" name="SSM_TR_AutomaticMode" tagName="kcg_tag_SSM_TR_AutomaticMode">
+          <value id="73" name="SSM_TR_no_trans_AutomaticMode"/>
+        </enum>
+        <enum id="74" name="TRAFFIC_PHASE_Type_TrafficLightController"
+            tagName="kcg_tag_TRAFFIC_PHASE_Type_TrafficLightController">
+          <value id="75" name="LIGHT_TRAFFIC_PHASE_TrafficLightController"/>
+          <value id="76" name="MODERATE_TRAFFIC_PHASE_TrafficLightController"/>
+          <value id="77" name="PEAK_TRAFFIC_PHASE_TrafficLightController"/>
+        </enum>
+        <macro id="78" name="kcg_assign_array"/>
+        <macro id="79" name="kcg_assign_struct"/>
+        <macro id="80" name="kcg_lnot_uint8"/>
+        <macro id="81" name="kcg_lnot_uint16"/>
+        <macro id="82" name="kcg_lnot_uint32"/>
+        <macro id="83" name="kcg_lnot_uint64"/>
+        <macro id="84" name="kcg_lsl_uint8"/>
+        <macro id="85" name="kcg_lsl_uint16"/>
+        <macro id="86" name="kcg_lsl_uint32"/>
+        <macro id="87" name="kcg_lsl_uint64"/>
+        <macro id="88" name="kcg_true"/>
+        <macro id="89" name="kcg_false"/>
+        <macro id="90" name="kcg_lit_int8"/>
+        <macro id="91" name="kcg_lit_int16"/>
+        <macro id="92" name="kcg_lit_int32"/>
+        <macro id="93" name="kcg_lit_int64"/>
+        <macro id="94" name="kcg_lit_uint8"/>
+        <macro id="95" name="kcg_lit_uint16"/>
+        <macro id="96" name="kcg_lit_uint32"/>
+        <macro id="97" name="kcg_lit_uint64"/>
+        <macro id="98" name="kcg_lit_size"/>
+        <macro id="99" name="kcg_lit_float64"/>
+        <macro id="100" name="kcg_lit_float32"/>
+        <predefType id="101" name="kcg_int8"/>
+        <predefType id="102" name="kcg_int16"/>
+        <predefType id="103" name="kcg_int32"/>
+        <predefType id="104" name="kcg_int64"/>
+        <predefType id="105" name="kcg_uint8"/>
+        <predefType id="106" name="kcg_uint16"/>
+        <predefType id="107" name="kcg_uint32"/>
+        <predefType id="108" name="kcg_uint64"/>
+        <predefType id="109" name="kcg_size"/>
+        <predefType id="110" name="kcg_float64"/>
+        <predefType id="111" name="kcg_float32"/>
+        <predefType id="112" name="kcg_bool"/>
+        <predefType id="113" name="kcg_char"/>
+        <macro id="114" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="115" name="kcg_consts.h"/>
+      <file id="116" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="110" dstId="99" role="wrapped-lit"/>
+    <map srcId="111" dstId="100" role="wrapped-lit"/>
+    <map srcId="109" dstId="98" role="wrapped-lit"/>
+    <map srcId="108" dstId="97" role="wrapped-lit"/>
+    <map srcId="108" dstId="83" role="wrapped-lnot"/>
+    <map srcId="108" dstId="87" role="wrapped-lsl"/>
+    <map srcId="107" dstId="96" role="wrapped-lit"/>
+    <map srcId="107" dstId="82" role="wrapped-lnot"/>
+    <map srcId="107" dstId="86" role="wrapped-lsl"/>
+    <map srcId="106" dstId="95" role="wrapped-lit"/>
+    <map srcId="106" dstId="81" role="wrapped-lnot"/>
+    <map srcId="106" dstId="85" role="wrapped-lsl"/>
+    <map srcId="105" dstId="94" role="wrapped-lit"/>
+    <map srcId="105" dstId="80" role="wrapped-lnot"/>
+    <map srcId="105" dstId="84" role="wrapped-lsl"/>
+    <map srcId="104" dstId="93" role="wrapped-lit"/>
+    <map srcId="103" dstId="92" role="wrapped-lit"/>
+    <map srcId="102" dstId="91" role="wrapped-lit"/>
+    <map srcId="101" dstId="90" role="wrapped-lit"/>
+  </generated>
+  <map modelId="24" generatedId="73" role="autom-no-trans-enum"/>
+  <map modelId="25" generatedId="71"/>
+  <map modelId="41" generatedId="69"/>
+  <map modelId="39" generatedId="68"/>
+  <map modelId="36" generatedId="67"/>
+  <map modelId="34" generatedId="66"/>
+  <map modelId="31" generatedId="65"/>
+  <map modelId="29" generatedId="64"/>
+  <map modelId="26" generatedId="63" role="autom-no-trans-enum"/>
+  <map modelId="16" generatedId="75"/>
+  <map modelId="17" generatedId="76"/>
+  <map modelId="18" generatedId="77"/>
+  <map modelId="37" generatedId="61"/>
+  <map modelId="27" generatedId="59"/>
+  <map modelId="32" generatedId="60"/>
+  <map modelId="20" generatedId="44" role="context-parameter"/>
+  <map modelId="20" generatedId="43" role="init-method"/>
+  <map modelId="20" generatedId="46" role="context-parameter"/>
+  <map modelId="20" generatedId="45" role="reset-method"/>
+  <map modelId="20" generatedId="48" role="input-struct-parameter"/>
+  <map modelId="22" generatedId="55"/>
+  <map modelId="21" generatedId="54"/>
+  <map modelId="20" generatedId="53" role="input-struct-type"/>
+  <map modelId="20" generatedId="49" role="context-parameter"/>
+  <map modelId="26" generatedId="52" role="autom-next-state"/>
+  <map modelId="23" generatedId="51"/>
+  <map modelId="20" generatedId="50" role="context-type"/>
+  <map modelId="20" generatedId="42" role="interface-file"/>
+  <map modelId="20" generatedId="47" role="cycle-method"/>
+  <map modelId="19" generatedId="57"/>
+  <map modelId="15" generatedId="74"/>
+  <map modelId="24" generatedId="72" role="autom-transitions-type"/>
+  <map modelId="24" generatedId="70" role="autom-states-type"/>
+  <map modelId="26" generatedId="62" role="autom-transitions-type"/>
+  <map modelId="26" generatedId="58" role="autom-states-type"/>
+  <map modelId="2" generatedId="113"/>
+  <map modelId="1" generatedId="112"/>
+  <map modelId="12" generatedId="110"/>
+  <map modelId="11" generatedId="111"/>
+  <map modelId="13" generatedId="109"/>
+  <map modelId="10" generatedId="108"/>
+  <map modelId="9" generatedId="107"/>
+  <map modelId="8" generatedId="106"/>
+  <map modelId="7" generatedId="105"/>
+  <map modelId="6" generatedId="104"/>
+  <map modelId="5" generatedId="103"/>
+  <map modelId="4" generatedId="102"/>
+  <map modelId="3" generatedId="101"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2020-06-09T12:22:14
+*************************************************************$-->

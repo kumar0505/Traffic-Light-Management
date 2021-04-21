@@ -1,0 +1,47 @@
+*****************************
+*** Generated KCG H/Ads files ***
+*****************************
+State_Diagram_TrafficLightController.h
+Signal_Rotation_TrafficLightController.h
+EastToNorth_TrafficLightController.h
+SouthToEast_TrafficLightController.h
+NorthToSouth_TrafficLightController.h
+Counter_TrafficLightController.h
+NorthSisnal_TrafficLightController.h
+SouthtSignal_TrafficLightController.h
+EastSignal_TrafficLightController.h
+kcg_types.h
+kcg_consts.h
+kcg_sensors.h
+
+*****************************
+*** Generated KCG C/Adb files ***
+*****************************
+State_Diagram_TrafficLightController.c
+Signal_Rotation_TrafficLightController.c
+EastToNorth_TrafficLightController.c
+SouthToEast_TrafficLightController.c
+NorthToSouth_TrafficLightController.c
+Counter_TrafficLightController.c
+NorthSisnal_TrafficLightController.c
+SouthtSignal_TrafficLightController.c
+EastSignal_TrafficLightController.c
+kcg_types.c
+kcg_consts.c
+
+*****************************
+*** Generated SC2C Files ***
+*****************************
+user_macros.h
+kcg_imported_types.h
+
+*****************************
+*** Include Directories ***
+*****************************
+.
+$(SCADE)
+$(SCADE)\include
+$(SCADE)\include\C
+$(SCADE)\include\Ada
+$(SCADE)\lib\Ada
+

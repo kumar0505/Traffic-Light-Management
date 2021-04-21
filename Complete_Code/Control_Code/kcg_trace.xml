@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="D:/AdvanceTrafficLight/KCG/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#off#"/>
+    <Option name="debug" value="#off#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="D:/AdvanceTrafficLight/KCG"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="TrafficLightController::State_Diagram"/>
+    <Option name="auth" value="#off#"/>
+    <Package scadeName="TrafficLightController">
+      <NamedType refType="kcg_int8" scadeName="int" targetName="int_TrafficLightController"/>
+      <NamedType refType="array_int8_4" scadeName="E_Signal" targetName="E_Signal_TrafficLightController"/>
+      <NamedType refType="array_int8_4" scadeName="S_signal" targetName="S_signal_TrafficLightController"/>
+      <NamedType refType="array_int8_4" scadeName="N_signal" targetName="N_signal_TrafficLightController"/>
+      <RootNode headerFile="State_Diagram_TrafficLightController.h" scadeName="State_Diagram" targetCycleFct="State_Diagram_TrafficLightController" targetInitFct="State_Diagram_reset_TrafficLightController" targetInitializationFct="State_Diagram_init_TrafficLightController">
+        <Input inCtx="true" scadeName="hour" scadeType="TrafficLightController::int" targetName="hour" targetType="int_TrafficLightController"/>
+        <Input inCtx="true" scadeName="min" scadeType="TrafficLightController::int" targetName="min" targetType="int_TrafficLightController"/>
+        <Output inCtx="true" scadeName="EY" scadeType="bool" targetName="EY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGl" scadeType="bool" targetName="EGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGr" scadeType="bool" targetName="EGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="ER" scadeType="bool" targetName="ER" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SY" scadeType="bool" targetName="SY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGs" scadeType="bool" targetName="SGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGr" scadeType="bool" targetName="SGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SR" scadeType="bool" targetName="SR" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NY" scadeType="bool" targetName="NY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGs" scadeType="bool" targetName="NGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGl" scadeType="bool" targetName="NGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NR" scadeType="bool" targetName="NR" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="Normal_Mode" scadeType="bool" targetName="Normal_Mode" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="Moderate_Mode" scadeType="bool" targetName="Moderate_Mode" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="Peak_Mode" scadeType="bool" targetName="Peak_Mode" targetType="kcg_bool"/>
+        <Automaton scadeName="State_Diagram" targetStatesType="SSM_ST_State_Diagram" targetTransitionsType="SSM_TR_State_Diagram">
+          <State scadeName="Normal" targetName="SSM_st_Normal_State_Diagram">
+            <NodeInstance instName="1" refName="EastSignal_TrafficLightController" scadeName="TrafficLightController::EastSignal"/>
+            <NodeInstance instName="1" refName="SouthtSignal_TrafficLightController" scadeName="TrafficLightController::SouthtSignal"/>
+            <NodeInstance instName="1" refName="NorthSisnal_TrafficLightController" scadeName="TrafficLightController::NorthSisnal"/>
+            <Fork priority="1">
+              <Condition/>
+              <Transition kind="strong" scadeDest="Moderate" targetName="SSM_TR_Normal_Moderate_1_Normal_State_Diagram"/>
+            </Fork>
+            <Fork priority="2">
+              <Condition/>
+              <Transition kind="strong" scadeDest="peak" targetName="SSM_TR_Normal_peak_2_Normal_State_Diagram"/>
+            </Fork>
+          </State>
+          <State scadeName="Moderate" targetName="SSM_st_Moderate_State_Diagram">
+            <NodeInstance instName="2" refName="Signal_Rotation_TrafficLightController" scadeName="TrafficLightController::Signal_Rotation">
+              <OutCtxVar targetName="Context_Signal_Rotation_2"/>
+            </NodeInstance>
+            <Fork priority="1">
+              <Condition/>
+              <Transition kind="strong" scadeDest="Normal" targetName="SSM_TR_Moderate_Normal_1_Moderate_State_Diagram"/>
+            </Fork>
+            <Fork priority="2">
+              <Condition/>
+              <Transition kind="strong" scadeDest="peak" targetName="SSM_TR_Moderate_peak_2_Moderate_State_Diagram"/>
+            </Fork>
+          </State>
+          <State scadeName="peak" targetName="SSM_st_peak_State_Diagram">
+            <NodeInstance instName="3" refName="Signal_Rotation_TrafficLightController" scadeName="TrafficLightController::Signal_Rotation">
+              <OutCtxVar targetName="Context_Signal_Rotation_3"/>
+            </NodeInstance>
+            <Fork priority="1">
+              <Condition/>
+              <Transition kind="strong" scadeDest="Moderate" targetName="SSM_TR_peak_Moderate_1_peak_State_Diagram"/>
+            </Fork>
+            <Fork priority="2">
+              <Condition/>
+              <Transition kind="strong" scadeDest="Normal" targetName="SSM_TR_peak_Normal_2_peak_State_Diagram"/>
+            </Fork>
+          </State>
+          <NextState inCtx="true" mem="true" targetName="State_Diagram_state_nxt"/>
+        </Automaton>
+        <Memory inCtx="true" targetName="State_Diagram_state_nxt" targetType="SSM_ST_State_Diagram"/>
+        <OutCtxType targetName="outC_State_Diagram_TrafficLightController"/>
+        <InCtxType targetName="inC_State_Diagram_TrafficLightController"/>
+      </RootNode>
+      <NoExpNode headerFile="EastSignal_TrafficLightController.h" scadeName="EastSignal" targetCycleFct="EastSignal_TrafficLightController">
+        <Input scadeName="Input1" scadeType="TrafficLightController::int" targetName="Input1" targetType="int_TrafficLightController"/>
+        <Input scadeName="Input2" scadeType="TrafficLightController::int" targetName="Input2" targetType="int_TrafficLightController"/>
+        <Input scadeName="Input3" scadeType="TrafficLightController::int" targetName="Input3" targetType="int_TrafficLightController"/>
+        <Input scadeName="Input4" scadeType="TrafficLightController::int" targetName="Input4" targetType="int_TrafficLightController"/>
+        <Output scadeName="ER" scadeType="bool" targetName="ER" targetType="kcg_bool"/>
+        <Output scadeName="EGr" scadeType="bool" targetName="EGr" targetType="kcg_bool"/>
+        <Output scadeName="EGl" scadeType="bool" targetName="EGl" targetType="kcg_bool"/>
+        <Output scadeName="EY" scadeType="bool" targetName="EY" targetType="kcg_bool"/>
+        <NodeInlining instName="4" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="ER" targetType="kcg_bool"/>
+        </NodeInlining>
+        <NodeInlining instName="5" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="EGr" targetType="kcg_bool"/>
+        </NodeInlining>
+        <NodeInlining instName="6" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="EGl" targetType="kcg_bool"/>
+        </NodeInlining>
+        <NodeInlining instName="7" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="EY" targetType="kcg_bool"/>
+        </NodeInlining>
+      </NoExpNode>
+      <ExpNode scadeName="IntToBool"/>
+      <NoExpNode headerFile="SouthtSignal_TrafficLightController.h" scadeName="SouthtSignal" targetCycleFct="SouthtSignal_TrafficLightController">
+        <Input scadeName="Input1" scadeType="TrafficLightController::int" targetName="Input1" targetType="int_TrafficLightController"/>
+        <Input scadeName="Input2" scadeType="TrafficLightController::int" targetName="Input2" targetType="int_TrafficLightController"/>
+        <Input scadeName="Input3" scadeType="TrafficLightController::int" targetName="Input3" targetType="int_TrafficLightController"/>
+        <Input scadeName="Input4" scadeType="TrafficLightController::int" targetName="Input4" targetType="int_TrafficLightController"/>
+        <Output scadeName="SR" scadeType="bool" targetName="SR" targetType="kcg_bool"/>
+        <Output scadeName="SGr" scadeType="bool" targetName="SGr" targetType="kcg_bool"/>
+        <Output scadeName="SGs" scadeType="bool" targetName="SGs" targetType="kcg_bool"/>
+        <Output scadeName="SY" scadeType="bool" targetName="SY" targetType="kcg_bool"/>
+        <NodeInlining instName="1" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="SR" targetType="kcg_bool"/>
+        </NodeInlining>
+        <NodeInlining instName="2" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="SGr" targetType="kcg_bool"/>
+        </NodeInlining>
+        <NodeInlining instName="3" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="SGs" targetType="kcg_bool"/>
+        </NodeInlining>
+        <NodeInlining instName="4" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="SY" targetType="kcg_bool"/>
+        </NodeInlining>
+      </NoExpNode>
+      <NoExpNode headerFile="NorthSisnal_TrafficLightController.h" scadeName="NorthSisnal" targetCycleFct="NorthSisnal_TrafficLightController">
+        <Input scadeName="Input1" scadeType="TrafficLightController::int" targetName="Input1" targetType="int_TrafficLightController"/>
+        <Input scadeName="Input2" scadeType="TrafficLightController::int" targetName="Input2" targetType="int_TrafficLightController"/>
+        <Input scadeName="Input3" scadeType="TrafficLightController::int" targetName="Input3" targetType="int_TrafficLightController"/>
+        <Input scadeName="Input4" scadeType="TrafficLightController::int" targetName="Input4" targetType="int_TrafficLightController"/>
+        <Output scadeName="NR" scadeType="bool" targetName="NR" targetType="kcg_bool"/>
+        <Output scadeName="NGl" scadeType="bool" targetName="NGl" targetType="kcg_bool"/>
+        <Output scadeName="NGs" scadeType="bool" targetName="NGs" targetType="kcg_bool"/>
+        <Output scadeName="NY" scadeType="bool" targetName="NY" targetType="kcg_bool"/>
+        <NodeInlining instName="1" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="NR" targetType="kcg_bool"/>
+        </NodeInlining>
+        <NodeInlining instName="2" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="NGl" targetType="kcg_bool"/>
+        </NodeInlining>
+        <NodeInlining instName="3" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="NGs" targetType="kcg_bool"/>
+        </NodeInlining>
+        <NodeInlining instName="4" scadeName="TrafficLightController::IntToBool">
+          <Output scadeName="ITB_Output" scadeType="bool" targetName="NY" targetType="kcg_bool"/>
+        </NodeInlining>
+      </NoExpNode>
+      <NoExpNode headerFile="Signal_Rotation_TrafficLightController.h" scadeName="Signal_Rotation" targetCycleFct="Signal_Rotation_TrafficLightController" targetInitFct="Signal_Rotation_reset_TrafficLightController" targetInitializationFct="Signal_Rotation_init_TrafficLightController">
+        <Input scadeName="Tnts" scadeType="TrafficLightController::int" targetName="Tnts" targetType="int_TrafficLightController"/>
+        <Input scadeName="Tetn" scadeType="TrafficLightController::int" targetName="Tetn" targetType="int_TrafficLightController"/>
+        <Input scadeName="Tste" scadeType="TrafficLightController::int" targetName="Tste" targetType="int_TrafficLightController"/>
+        <Output inCtx="true" scadeName="EY" scadeType="bool" targetName="EY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGl" scadeType="bool" targetName="EGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGr" scadeType="bool" targetName="EGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="ER" scadeType="bool" targetName="ER" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SY" scadeType="bool" targetName="SY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGs" scadeType="bool" targetName="SGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGr" scadeType="bool" targetName="SGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SR" scadeType="bool" targetName="SR" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NY" scadeType="bool" targetName="NY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGs" scadeType="bool" targetName="NGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGl" scadeType="bool" targetName="NGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NR" scadeType="bool" targetName="NR" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="Tout1" scadeType="bool" targetName="Tout1" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="Tout2" scadeType="bool" targetName="Tout2" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="Tout3" scadeType="bool" targetName="Tout3" targetType="kcg_bool"/>
+        <Automaton scadeName="SM1" targetStatesType="SSM_ST_SM1" targetTransitionsType="SSM_TR_SM1">
+          <State scadeName="Normal" targetName="SSM_st_Normal_SM1">
+            <Automaton scadeName="SM2" targetStatesType="SSM_ST_SM2_Normal_SM1" targetTransitionsType="SSM_TR_SM2_Normal_SM1">
+              <State scadeName="NTS" targetName="SSM_st_NTS_SM2_Normal_SM1">
+                <NodeInstance instName="1" refName="NorthToSouth_TrafficLightController" scadeName="TrafficLightController::NorthToSouth">
+                  <OutCtxVar targetName="Context_NorthToSouth_1"/>
+                </NodeInstance>
+                <Fork priority="1">
+                  <Condition/>
+                  <Transition kind="strong" scadeDest="STE" targetName="SSM_TR_NTS_STE_1_NTS_SM2_Normal_SM1"/>
+                </Fork>
+              </State>
+              <State scadeName="STE" targetName="SSM_st_STE_SM2_Normal_SM1">
+                <NodeInstance instName="1" refName="SouthToEast_TrafficLightController" scadeName="TrafficLightController::SouthToEast">
+                  <OutCtxVar targetName="Context_SouthToEast_1"/>
+                </NodeInstance>
+                <Fork priority="1">
+                  <Condition/>
+                  <Transition kind="strong" scadeDest="ETN" targetName="SSM_TR_STE_ETN_1_STE_SM2_Normal_SM1"/>
+                </Fork>
+              </State>
+              <State scadeName="ETN" targetName="SSM_st_ETN_SM2_Normal_SM1">
+                <NodeInstance instName="1" refName="EastToNorth_TrafficLightController" scadeName="TrafficLightController::EastToNorth">
+                  <OutCtxVar targetName="Context_EastToNorth_1"/>
+                </NodeInstance>
+                <Fork priority="1">
+                  <Condition/>
+                  <Transition kind="strong" scadeDest="NTS" targetName="SSM_TR_ETN_NTS_1_ETN_SM2_Normal_SM1"/>
+                </Fork>
+              </State>
+              <NextState inCtx="true" mem="true" targetName="SM2_state_nxt_Normal_SM1"/>
+            </Automaton>
+          </State>
+        </Automaton>
+        <NodeInstance instName="1" refName="Counter_TrafficLightController" scadeName="TrafficLightController::Counter">
+          <OutCtxVar targetName="Context_Counter_1"/>
+        </NodeInstance>
+        <NodeInstance instName="2" refName="Counter_TrafficLightController" scadeName="TrafficLightController::Counter">
+          <OutCtxVar targetName="Context_Counter_2"/>
+        </NodeInstance>
+        <NodeInstance instName="3" refName="Counter_TrafficLightController" scadeName="TrafficLightController::Counter">
+          <OutCtxVar targetName="Context_Counter_3"/>
+        </NodeInstance>
+        <Memory inCtx="true" targetName="SM2_state_nxt_Normal_SM1" targetType="SSM_ST_SM2_Normal_SM1"/>
+        <OutCtxType targetName="outC_Signal_Rotation_TrafficLightController"/>
+      </NoExpNode>
+      <NoExpNode headerFile="NorthToSouth_TrafficLightController.h" scadeName="NorthToSouth" targetCycleFct="NorthToSouth_TrafficLightController" targetInitFct="NorthToSouth_reset_TrafficLightController" targetInitializationFct="NorthToSouth_init_TrafficLightController">
+        <Input scadeName="Tnts" scadeType="TrafficLightController::int" targetName="Tnts" targetType="int_TrafficLightController"/>
+        <Output inCtx="true" scadeName="NR" scadeType="bool" targetName="NR" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGl" scadeType="bool" targetName="NGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGs" scadeType="bool" targetName="NGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NY" scadeType="bool" targetName="NY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SR" scadeType="bool" targetName="SR" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGr" scadeType="bool" targetName="SGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGs" scadeType="bool" targetName="SGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SY" scadeType="bool" targetName="SY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="ER" scadeType="bool" targetName="ER" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGr" scadeType="bool" targetName="EGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGl" scadeType="bool" targetName="EGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EY" scadeType="bool" targetName="EY" targetType="kcg_bool"/>
+        <Automaton scadeName="NTS" targetStatesType="SSM_ST_NTS" targetTransitionsType="SSM_TR_NTS">
+          <State scadeName="Running" targetName="SSM_st_Running_NTS">
+            <NodeInstance instName="1" refName="NorthSisnal_TrafficLightController" scadeName="TrafficLightController::NorthSisnal"/>
+            <NodeInstance instName="1" refName="SouthtSignal_TrafficLightController" scadeName="TrafficLightController::SouthtSignal"/>
+            <NodeInstance instName="1" refName="EastSignal_TrafficLightController" scadeName="TrafficLightController::EastSignal"/>
+            <Fork priority="1">
+              <Condition/>
+              <Transition kind="strong" scadeDest="Stopping" targetName="_3_SSM_TR_Running_Stopping_1_Running_NTS"/>
+            </Fork>
+          </State>
+          <State scadeName="Stopping" targetName="SSM_st_Stopping_NTS">
+            <NodeInstance instName="2" refName="NorthSisnal_TrafficLightController" scadeName="TrafficLightController::NorthSisnal"/>
+            <NodeInstance instName="2" refName="SouthtSignal_TrafficLightController" scadeName="TrafficLightController::SouthtSignal"/>
+            <NodeInstance instName="3" refName="EastSignal_TrafficLightController" scadeName="TrafficLightController::EastSignal"/>
+          </State>
+          <NextState inCtx="true" mem="true" targetName="NTS_state_nxt"/>
+        </Automaton>
+        <NodeInstance instName="1" refName="Counter_TrafficLightController" scadeName="TrafficLightController::Counter">
+          <OutCtxVar targetName="Context_Counter_1"/>
+        </NodeInstance>
+        <Memory inCtx="true" targetName="NTS_state_nxt" targetType="SSM_ST_NTS"/>
+        <OutCtxType targetName="outC_NorthToSouth_TrafficLightController"/>
+      </NoExpNode>
+      <NoExpNode headerFile="Counter_TrafficLightController.h" scadeName="Counter" targetCycleFct="Counter_TrafficLightController" targetInitFct="Counter_reset_TrafficLightController" targetInitializationFct="Counter_init_TrafficLightController">
+        <Input scadeName="modulo" scadeType="TrafficLightController::int" targetName="modulo" targetType="int_TrafficLightController"/>
+        <Output inCtx="true" scadeName="count" scadeType="TrafficLightController::int" targetName="count" targetType="int_TrafficLightController"/>
+        <Output inCtx="true" scadeName="rippleClock" scadeType="bool" targetName="rippleClock" targetType="kcg_bool"/>
+        <FbyOp instName="1">
+          <Memory inCtx="true" targetName="_L4" targetType="kcg_int8"/>
+        </FbyOp>
+        <Memory inCtx="true" targetName="_L4" targetType="kcg_int8"/>
+        <OutCtxType targetName="outC_Counter_TrafficLightController"/>
+      </NoExpNode>
+      <NoExpNode headerFile="SouthToEast_TrafficLightController.h" scadeName="SouthToEast" targetCycleFct="SouthToEast_TrafficLightController" targetInitFct="SouthToEast_reset_TrafficLightController" targetInitializationFct="SouthToEast_init_TrafficLightController">
+        <Input scadeName="Tste" scadeType="TrafficLightController::int" targetName="Tste" targetType="int_TrafficLightController"/>
+        <Output inCtx="true" scadeName="EY" scadeType="bool" targetName="EY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGl" scadeType="bool" targetName="EGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGr" scadeType="bool" targetName="EGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="ER" scadeType="bool" targetName="ER" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SY" scadeType="bool" targetName="SY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGs" scadeType="bool" targetName="SGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGr" scadeType="bool" targetName="SGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SR" scadeType="bool" targetName="SR" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NY" scadeType="bool" targetName="NY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGs" scadeType="bool" targetName="NGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGl" scadeType="bool" targetName="NGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NR" scadeType="bool" targetName="NR" targetType="kcg_bool"/>
+        <Automaton scadeName="STE" targetStatesType="SSM_ST_STE" targetTransitionsType="SSM_TR_STE">
+          <State scadeName="Running" targetName="SSM_st_Running_STE">
+            <NodeInstance instName="1" refName="NorthSisnal_TrafficLightController" scadeName="TrafficLightController::NorthSisnal"/>
+            <NodeInstance instName="1" refName="SouthtSignal_TrafficLightController" scadeName="TrafficLightController::SouthtSignal"/>
+            <NodeInstance instName="1" refName="EastSignal_TrafficLightController" scadeName="TrafficLightController::EastSignal"/>
+            <Fork priority="1">
+              <Condition/>
+              <Transition kind="strong" scadeDest="Stopping" targetName="_2_SSM_TR_Running_Stopping_1_Running_STE"/>
+            </Fork>
+          </State>
+          <State scadeName="Stopping" targetName="SSM_st_Stopping_STE">
+            <NodeInstance instName="2" refName="NorthSisnal_TrafficLightController" scadeName="TrafficLightController::NorthSisnal"/>
+            <NodeInstance instName="2" refName="SouthtSignal_TrafficLightController" scadeName="TrafficLightController::SouthtSignal"/>
+            <NodeInstance instName="2" refName="EastSignal_TrafficLightController" scadeName="TrafficLightController::EastSignal"/>
+          </State>
+          <NextState inCtx="true" mem="true" targetName="STE_state_nxt"/>
+        </Automaton>
+        <NodeInstance instName="1" refName="Counter_TrafficLightController" scadeName="TrafficLightController::Counter">
+          <OutCtxVar targetName="Context_Counter_1"/>
+        </NodeInstance>
+        <Memory inCtx="true" targetName="STE_state_nxt" targetType="SSM_ST_STE"/>
+        <OutCtxType targetName="outC_SouthToEast_TrafficLightController"/>
+      </NoExpNode>
+      <NoExpNode headerFile="EastToNorth_TrafficLightController.h" scadeName="EastToNorth" targetCycleFct="EastToNorth_TrafficLightController" targetInitFct="EastToNorth_reset_TrafficLightController" targetInitializationFct="EastToNorth_init_TrafficLightController">
+        <Input scadeName="Tetn" scadeType="TrafficLightController::int" targetName="Tetn" targetType="int_TrafficLightController"/>
+        <Output inCtx="true" scadeName="EY" scadeType="bool" targetName="EY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGl" scadeType="bool" targetName="EGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="EGr" scadeType="bool" targetName="EGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="ER" scadeType="bool" targetName="ER" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SY" scadeType="bool" targetName="SY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGs" scadeType="bool" targetName="SGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SGr" scadeType="bool" targetName="SGr" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="SR" scadeType="bool" targetName="SR" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NY" scadeType="bool" targetName="NY" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGs" scadeType="bool" targetName="NGs" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NGl" scadeType="bool" targetName="NGl" targetType="kcg_bool"/>
+        <Output inCtx="true" scadeName="NR" scadeType="bool" targetName="NR" targetType="kcg_bool"/>
+        <Automaton scadeName="NTE" targetStatesType="SSM_ST_NTE" targetTransitionsType="SSM_TR_NTE">
+          <State scadeName="Running" targetName="SSM_st_Running_NTE">
+            <NodeInstance instName="1" refName="NorthSisnal_TrafficLightController" scadeName="TrafficLightController::NorthSisnal"/>
+            <NodeInstance instName="1" refName="SouthtSignal_TrafficLightController" scadeName="TrafficLightController::SouthtSignal"/>
+            <NodeInstance instName="1" refName="EastSignal_TrafficLightController" scadeName="TrafficLightController::EastSignal"/>
+            <Fork priority="1">
+              <Condition/>
+              <Transition kind="strong" scadeDest="Stopping" targetName="SSM_TR_Running_Stopping_1_Running_NTE"/>
+            </Fork>
+          </State>
+          <State scadeName="Stopping" targetName="SSM_st_Stopping_NTE">
+            <NodeInstance instName="2" refName="NorthSisnal_TrafficLightController" scadeName="TrafficLightController::NorthSisnal"/>
+            <NodeInstance instName="2" refName="SouthtSignal_TrafficLightController" scadeName="TrafficLightController::SouthtSignal"/>
+            <NodeInstance instName="2" refName="EastSignal_TrafficLightController" scadeName="TrafficLightController::EastSignal"/>
+          </State>
+          <NextState inCtx="true" mem="true" targetName="NTE_state_nxt"/>
+        </Automaton>
+        <NodeInstance instName="1" refName="Counter_TrafficLightController" scadeName="TrafficLightController::Counter">
+          <OutCtxVar targetName="Context_Counter_1"/>
+        </NodeInstance>
+        <Memory inCtx="true" targetName="NTE_state_nxt" targetType="SSM_ST_NTE"/>
+        <OutCtxType targetName="outC_EastToNorth_TrafficLightController"/>
+      </NoExpNode>
+    </Package>
+    <ArrayType cellType="kcg_int8" size="4" targetCompFct="kcg_comp_array_int8_4" targetCopyFct="kcg_copy_array_int8_4" targetName="array_int8_4"/>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

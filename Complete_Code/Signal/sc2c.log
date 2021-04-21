@@ -1,0 +1,38 @@
+$**************  SCADETOC Version 2019 R3 (build 20190802) **************
+** Generation date: 2020-06-09T12:35:45
+** Command: scade -code "D:\TrafficLightManagement\AdvanceTrafficLight.etp" -root TrafficLightController::SouthSignal -conf KCG
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file D:\TrafficLightManagement\KCG\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file D:\TrafficLightManagement\KCG\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file D:\TrafficLightManagement\KCG\SouthSignal_TrafficLightController.c, line 0, character 0
+ ~SouthSignal_TrafficLightController.c
+  at file D:\TrafficLightManagement\KCG\SouthSignal_TrafficLightController.h, line 0, character 0
+ ~SouthSignal_TrafficLightController.h
+  at file D:\TrafficLightManagement\KCG\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file D:\TrafficLightManagement\KCG\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file D:\TrafficLightManagement\KCG\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file D:\TrafficLightManagement\KCG\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file D:\TrafficLightManagement\KCG\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file D:\TrafficLightManagement\KCG\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file D:\TrafficLightManagement\KCG\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file D:\TrafficLightManagement\KCG\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file D:\TrafficLightManagement\KCG\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file D:\TrafficLightManagement\KCG\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+$**************  SCADETOC Version 2019 R3 (build 20190802) **************
+** Generation date: 2020-06-09T12:35:46
+** sc2c.log
+*************************************************************$

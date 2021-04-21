@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="D:/TrafficLightManagement/KCG/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#off#"/>
+    <Option name="debug" value="#off#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="D:/TrafficLightManagement/KCG"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="TrafficLightController::AutomaticMode"/>
+    <Option name="auth" value="#off#"/>
+    <Package scadeName="TrafficLightController">
+      <EnumType scadeName="TRAFFIC_PHASE_Type" targetName="TRAFFIC_PHASE_Type_TrafficLightController">
+        <EnumVal scadeName="LIGHT_TRAFFIC_PHASE" targetName="LIGHT_TRAFFIC_PHASE_TrafficLightController"/>
+        <EnumVal scadeName="MODERATE_TRAFFIC_PHASE" targetName="MODERATE_TRAFFIC_PHASE_TrafficLightController"/>
+        <EnumVal scadeName="PEAK_TRAFFIC_PHASE" targetName="PEAK_TRAFFIC_PHASE_TrafficLightController"/>
+      </EnumType>
+      <NamedType refType="kcg_int8" scadeName="int" targetName="int_TrafficLightController"/>
+      <RootNode headerFile="AutomaticMode_TrafficLightController.h" scadeName="AutomaticMode" targetCycleFct="AutomaticMode_TrafficLightController" targetInitFct="AutomaticMode_reset_TrafficLightController" targetInitializationFct="AutomaticMode_init_TrafficLightController">
+        <Input inCtx="true" scadeName="Hour" scadeType="TrafficLightController::int" targetName="Hour" targetType="int_TrafficLightController"/>
+        <Input inCtx="true" scadeName="Min" scadeType="TrafficLightController::int" targetName="Min" targetType="int_TrafficLightController"/>
+        <Output inCtx="true" scadeName="TrafficPhase" scadeType="TrafficLightController::TRAFFIC_PHASE_Type" targetName="TrafficPhase" targetType="TRAFFIC_PHASE_Type_TrafficLightController"/>
+        <Automaton scadeName="AutomaticMode" targetStatesType="SSM_ST_AutomaticMode" targetTransitionsType="SSM_TR_AutomaticMode">
+          <State scadeName="AutomaticMode" targetName="SSM_st_AutomaticMode_AutomaticMode">
+            <Automaton scadeName="PhaseTransition" targetStatesType="SSM_ST_PhaseTransition_AutomaticMode_AutomaticMode" targetTransitionsType="SSM_TR_PhaseTransition_AutomaticMode_AutomaticMode">
+              <State scadeName="LightTrafficPhase" targetName="SSM_st_LightTrafficPhase_PhaseTransition_AutomaticMode_AutomaticMode">
+                <Fork priority="1">
+                  <Condition/>
+                  <Transition kind="strong" scadeDest="ModerateTrafficMode" targetName="SSM_TR_LightTrafficPhase_ModerateTrafficMode_1_LightTrafficPhase_PhaseTransition_AutomaticMode_AutomaticMode"/>
+                </Fork>
+                <Fork priority="2">
+                  <Condition/>
+                  <Transition kind="strong" scadeDest="PeakTrafficMode" targetName="SSM_TR_LightTrafficPhase_PeakTrafficMode_2_LightTrafficPhase_PhaseTransition_AutomaticMode_AutomaticMode"/>
+                </Fork>
+              </State>
+              <State scadeName="ModerateTrafficMode" targetName="SSM_st_ModerateTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode">
+                <Fork priority="1">
+                  <Condition/>
+                  <Transition kind="strong" scadeDest="PeakTrafficMode" targetName="SSM_TR_ModerateTrafficMode_PeakTrafficMode_1_ModerateTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+                </Fork>
+                <Fork priority="2">
+                  <Condition/>
+                  <Transition kind="strong" scadeDest="LightTrafficPhase" targetName="SSM_TR_ModerateTrafficMode_LightTrafficPhase_2_ModerateTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+                </Fork>
+              </State>
+              <State scadeName="PeakTrafficMode" targetName="SSM_st_PeakTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode">
+                <Fork priority="1">
+                  <Condition/>
+                  <Transition kind="strong" scadeDest="ModerateTrafficMode" targetName="SSM_TR_PeakTrafficMode_ModerateTrafficMode_1_PeakTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+                </Fork>
+                <Fork priority="2">
+                  <Condition/>
+                  <Transition kind="strong" scadeDest="LightTrafficPhase" targetName="SSM_TR_PeakTrafficMode_LightTrafficPhase_2_PeakTrafficMode_PhaseTransition_AutomaticMode_AutomaticMode"/>
+                </Fork>
+              </State>
+              <NextState inCtx="true" mem="true" targetName="PhaseTransition_state_nxt_AutomaticMode_AutomaticMode"/>
+            </Automaton>
+          </State>
+        </Automaton>
+        <Memory inCtx="true" targetName="PhaseTransition_state_nxt_AutomaticMode_AutomaticMode" targetType="SSM_ST_PhaseTransition_AutomaticMode_AutomaticMode"/>
+        <OutCtxType targetName="outC_AutomaticMode_TrafficLightController"/>
+        <InCtxType targetName="inC_AutomaticMode_TrafficLightController"/>
+      </RootNode>
+    </Package>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

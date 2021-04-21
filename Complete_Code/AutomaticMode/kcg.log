@@ -1,0 +1,16 @@
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/TrafficLightManagement/KCG/config.txt
+** Generation date: 2020-06-09T12:22:13
+*************************************************************$
+*** Code Generation Warning (WAR_604): Renaming interface identifier
+  at file D:/TrafficLightManagement/KCG/scade_model_without_unused.scade, line 18, character 0
+  at path TrafficLightController::int/
+ Interface element int_TrafficLightController has been renamed because it is not
+ a valid C identifier
+1 warning was found
+No error was found
+No failure occurred
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** kcg.log
+** Generation date: 2020-06-09T12:22:14
+*************************************************************$

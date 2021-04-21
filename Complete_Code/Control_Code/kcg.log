@@ -1,0 +1,21 @@
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/AdvanceTrafficLight/KCG/config.txt
+** Generation date: 2020-05-21T13:10:54
+*************************************************************$
+*** Post-namespace Warning (WAR_506): Useless final declaration
+  at file D:/AdvanceTrafficLight/KCG/scade_model_without_unused.scade, line 1909, character 3
+  at path TrafficLightController::State_Diagram/State_Diagram:
+ The automaton State_Diagram has a state declared as final, but it is not in the
+ scope of any synchro transition
+*** Code Generation Warning (WAR_604): Renaming interface identifier
+  at file D:/AdvanceTrafficLight/KCG/scade_model_without_unused.scade, line 8, character 0
+  at path TrafficLightController::int/
+ Interface element int_TrafficLightController has been renamed because it is not
+ a valid C identifier
+2 warnings were found
+No error was found
+No failure occurred
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** kcg.log
+** Generation date: 2020-05-21T13:10:54
+*************************************************************$

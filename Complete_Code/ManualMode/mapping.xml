@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/TrafficLightManagement/KCG/config.txt
+** Generation date: 2020-06-09T12:43:39
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="D:/TrafficLightManagement/KCG/scade_model_without_unused.scade"/>
+    <option name="probes" value="#off#"/>
+    <option name="debug" value="#off#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="D:/TrafficLightManagement/KCG"/>
+    <option name="target" value="C"/>
+    <option name="root" value="TrafficLightController::ManualMode"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <package id="14" name="TrafficLightController">
+      <enum id="15" name="MANUAL_SIGNAL_TYPE">
+        <value id="16" name="SET_E_TO_N_SIGNAL" default="false"/>
+        <value id="17" name="SET_S_TO_E_SIGNAL" default="false"/>
+        <value id="18" name="SET_N_TO_S_SIGNAL" default="false"/>
+      </enum>
+      <operator id="19" name="ManualMode" imported="false" root="true" expanded="false">
+        <input id="20" name="Press_N_to_S" clock="false" type="1"/>
+        <input id="21" name="Press_S_to_E" clock="false" type="1"/>
+        <input id="22" name="Press_E_to_N" clock="false" type="1"/>
+        <output id="23" name="Signal_Set" clock="false" type="15"/>
+        <automaton id="24" name="ManualMode">
+          <state id="25" name="North_To_South" initial="true" final="false" default="false">
+            <fork id="26" name="1" kind="strong">
+              <transition id="27" dest="30"/>
+            </fork>
+            <fork id="28" name="2" kind="strong">
+              <transition id="29" dest="35"/>
+            </fork>
+          </state>
+          <state id="30" name="South_To_East" initial="false" final="false" default="false">
+            <fork id="31" name="1" kind="strong">
+              <transition id="32" dest="35"/>
+            </fork>
+            <fork id="33" name="2" kind="strong">
+              <transition id="34" dest="25"/>
+            </fork>
+          </state>
+          <state id="35" name="East_To_North" initial="false" final="false" default="false">
+            <fork id="36" name="1" kind="strong">
+              <transition id="37" dest="25"/>
+            </fork>
+            <fork id="38" name="2" kind="strong">
+              <transition id="39" dest="30"/>
+            </fork>
+          </state>
+        </automaton>
+      </operator>
+    </package>
+  </model>
+  <generated>
+    <c>
+      <file id="40" name="ManualMode_TrafficLightController.h">
+        <function id="41" name="ManualMode_init_TrafficLightController">
+          <parameter id="42" name="outC" type="48" pointer="true"/>
+        </function>
+        <function id="43" name="ManualMode_reset_TrafficLightController">
+          <parameter id="44" name="outC" type="48" pointer="true"/>
+        </function>
+        <function id="45" name="ManualMode_TrafficLightController">
+          <parameter id="46" name="inC" type="51" pointer="true"/>
+          <parameter id="47" name="outC" type="48" pointer="true"/>
+        </function>
+        <struct id="48" name="outC_ManualMode_TrafficLightController">
+          <field id="49" name="Signal_Set" type="68" pointer="false"/>
+          <field id="50" name="ManualMode_state_nxt" type="56" pointer="false"/>
+        </struct>
+        <struct id="51" name="inC_ManualMode_TrafficLightController">
+          <field id="52" name="Press_N_to_S" type="106" pointer="false"/>
+          <field id="53" name="Press_S_to_E" type="106" pointer="false"/>
+          <field id="54" name="Press_E_to_N" type="106" pointer="false"/>
+        </struct>
+      </file>
+      <file id="55" name="kcg_types.h">
+        <enum id="56" name="SSM_ST_ManualMode" tagName="kcg_tag_SSM_ST_ManualMode">
+          <value id="57" name="SSM_st_North_To_South_ManualMode"/>
+          <value id="58" name="SSM_st_South_To_East_ManualMode"/>
+          <value id="59" name="SSM_st_East_To_North_ManualMode"/>
+        </enum>
+        <enum id="60" name="SSM_TR_ManualMode" tagName="kcg_tag_SSM_TR_ManualMode">
+          <value id="61" name="SSM_TR_no_trans_ManualMode"/>
+          <value id="62" name="SSM_TR_North_To_South_South_To_East_1_North_To_South_ManualMode"/>
+          <value id="63" name="SSM_TR_North_To_South_East_To_North_2_North_To_South_ManualMode"/>
+          <value id="64" name="SSM_TR_South_To_East_East_To_North_1_South_To_East_ManualMode"/>
+          <value id="65" name="SSM_TR_South_To_East_North_To_South_2_South_To_East_ManualMode"/>
+          <value id="66" name="SSM_TR_East_To_North_North_To_South_1_East_To_North_ManualMode"/>
+          <value id="67" name="SSM_TR_East_To_North_South_To_East_2_East_To_North_ManualMode"/>
+        </enum>
+        <enum id="68" name="MANUAL_SIGNAL_TYPE_TrafficLightController"
+            tagName="kcg_tag_MANUAL_SIGNAL_TYPE_TrafficLightController">
+          <value id="69" name="SET_E_TO_N_SIGNAL_TrafficLightController"/>
+          <value id="70" name="SET_S_TO_E_SIGNAL_TrafficLightController"/>
+          <value id="71" name="SET_N_TO_S_SIGNAL_TrafficLightController"/>
+        </enum>
+        <macro id="72" name="kcg_assign_array"/>
+        <macro id="73" name="kcg_assign_struct"/>
+        <macro id="74" name="kcg_lnot_uint8"/>
+        <macro id="75" name="kcg_lnot_uint16"/>
+        <macro id="76" name="kcg_lnot_uint32"/>
+        <macro id="77" name="kcg_lnot_uint64"/>
+        <macro id="78" name="kcg_lsl_uint8"/>
+        <macro id="79" name="kcg_lsl_uint16"/>
+        <macro id="80" name="kcg_lsl_uint32"/>
+        <macro id="81" name="kcg_lsl_uint64"/>
+        <macro id="82" name="kcg_true"/>
+        <macro id="83" name="kcg_false"/>
+        <macro id="84" name="kcg_lit_int8"/>
+        <macro id="85" name="kcg_lit_int16"/>
+        <macro id="86" name="kcg_lit_int32"/>
+        <macro id="87" name="kcg_lit_int64"/>
+        <macro id="88" name="kcg_lit_uint8"/>
+        <macro id="89" name="kcg_lit_uint16"/>
+        <macro id="90" name="kcg_lit_uint32"/>
+        <macro id="91" name="kcg_lit_uint64"/>
+        <macro id="92" name="kcg_lit_size"/>
+        <macro id="93" name="kcg_lit_float64"/>
+        <macro id="94" name="kcg_lit_float32"/>
+        <predefType id="95" name="kcg_int8"/>
+        <predefType id="96" name="kcg_int16"/>
+        <predefType id="97" name="kcg_int32"/>
+        <predefType id="98" name="kcg_int64"/>
+        <predefType id="99" name="kcg_uint8"/>
+        <predefType id="100" name="kcg_uint16"/>
+        <predefType id="101" name="kcg_uint32"/>
+        <predefType id="102" name="kcg_uint64"/>
+        <predefType id="103" name="kcg_size"/>
+        <predefType id="104" name="kcg_float64"/>
+        <predefType id="105" name="kcg_float32"/>
+        <predefType id="106" name="kcg_bool"/>
+        <predefType id="107" name="kcg_char"/>
+        <macro id="108" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="109" name="kcg_consts.h"/>
+      <file id="110" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="104" dstId="93" role="wrapped-lit"/>
+    <map srcId="105" dstId="94" role="wrapped-lit"/>
+    <map srcId="103" dstId="92" role="wrapped-lit"/>
+    <map srcId="102" dstId="91" role="wrapped-lit"/>
+    <map srcId="102" dstId="77" role="wrapped-lnot"/>
+    <map srcId="102" dstId="81" role="wrapped-lsl"/>
+    <map srcId="101" dstId="90" role="wrapped-lit"/>
+    <map srcId="101" dstId="76" role="wrapped-lnot"/>
+    <map srcId="101" dstId="80" role="wrapped-lsl"/>
+    <map srcId="100" dstId="89" role="wrapped-lit"/>
+    <map srcId="100" dstId="75" role="wrapped-lnot"/>
+    <map srcId="100" dstId="79" role="wrapped-lsl"/>
+    <map srcId="99" dstId="88" role="wrapped-lit"/>
+    <map srcId="99" dstId="74" role="wrapped-lnot"/>
+    <map srcId="99" dstId="78" role="wrapped-lsl"/>
+    <map srcId="98" dstId="87" role="wrapped-lit"/>
+    <map srcId="97" dstId="86" role="wrapped-lit"/>
+    <map srcId="96" dstId="85" role="wrapped-lit"/>
+    <map srcId="95" dstId="84" role="wrapped-lit"/>
+  </generated>
+  <map modelId="39" generatedId="67"/>
+  <map modelId="37" generatedId="66"/>
+  <map modelId="34" generatedId="65"/>
+  <map modelId="32" generatedId="64"/>
+  <map modelId="29" generatedId="63"/>
+  <map modelId="27" generatedId="62"/>
+  <map modelId="24" generatedId="61" role="autom-no-trans-enum"/>
+  <map modelId="18" generatedId="71"/>
+  <map modelId="17" generatedId="70"/>
+  <map modelId="16" generatedId="69"/>
+  <map modelId="35" generatedId="59"/>
+  <map modelId="30" generatedId="58"/>
+  <map modelId="25" generatedId="57"/>
+  <map modelId="19" generatedId="42" role="context-parameter"/>
+  <map modelId="19" generatedId="41" role="init-method"/>
+  <map modelId="19" generatedId="44" role="context-parameter"/>
+  <map modelId="19" generatedId="43" role="reset-method"/>
+  <map modelId="19" generatedId="46" role="input-struct-parameter"/>
+  <map modelId="22" generatedId="54"/>
+  <map modelId="21" generatedId="53"/>
+  <map modelId="20" generatedId="52"/>
+  <map modelId="19" generatedId="51" role="input-struct-type"/>
+  <map modelId="19" generatedId="47" role="context-parameter"/>
+  <map modelId="24" generatedId="50" role="autom-next-state"/>
+  <map modelId="23" generatedId="49"/>
+  <map modelId="19" generatedId="48" role="context-type"/>
+  <map modelId="19" generatedId="40" role="interface-file"/>
+  <map modelId="19" generatedId="45" role="cycle-method"/>
+  <map modelId="15" generatedId="68"/>
+  <map modelId="24" generatedId="60" role="autom-transitions-type"/>
+  <map modelId="24" generatedId="56" role="autom-states-type"/>
+  <map modelId="2" generatedId="107"/>
+  <map modelId="1" generatedId="106"/>
+  <map modelId="12" generatedId="104"/>
+  <map modelId="11" generatedId="105"/>
+  <map modelId="13" generatedId="103"/>
+  <map modelId="10" generatedId="102"/>
+  <map modelId="9" generatedId="101"/>
+  <map modelId="8" generatedId="100"/>
+  <map modelId="7" generatedId="99"/>
+  <map modelId="6" generatedId="98"/>
+  <map modelId="5" generatedId="97"/>
+  <map modelId="4" generatedId="96"/>
+  <map modelId="3" generatedId="95"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2020-06-09T12:43:39
+*************************************************************$-->

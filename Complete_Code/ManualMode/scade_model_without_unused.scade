@@ -1,0 +1,352 @@
+
+package TrafficLightController
+
+   type
+      #pragma ed <Type oid="!ed/3462/7CB/1D60/5edf2ef13267"/>
+#end
+
+MANUAL_SIGNAL_TYPE = enum {#pragma ed <Constant oid="!ed/3463/7CB/1D60/5edf2f252d6c"/>
+#end
+SET_E_TO_N_SIGNAL, #pragma ed <Constant oid="!ed/3470/7CB/1D60/5edf2f9d1d00"/>
+#end
+SET_S_TO_E_SIGNAL, #pragma ed <Constant oid="!ed/3471/7CB/1D60/5edf2fc3186c"/>
+#end
+SET_N_TO_S_SIGNAL};
+
+node #pragma ed <Operator oid="!ed/3351/7CB/1D60/5edf2b9d450f">
+	<diagrams>
+		<NetDiagram name="ManualMode_1" landscape="true" format="A4 (210 297)" oid="!ed/3352/7CB/1D60/5edf2b9d6b40">
+			<presentationElements>
+				<StateMachineGE presentable="!ed/3365/7CB/1D60/5edf2bfa1bce">
+					<position>
+						<Point x="159" y="106"/>
+					</position>
+					<size>
+						<Size width="17304" height="13494"/>
+					</size>
+				</StateMachineGE>
+				<StateGE presentable="!ed/3360/7CB/1D60/5edf2bf94b8b">
+					<position>
+						<Point x="5106" y="212"/>
+					</position>
+					<size>
+						<Size width="7197" height="4339"/>
+					</size>
+				</StateGE>
+				<StateGE presentable="!ed/337b/7CB/1D60/5edf2c2a1113">
+					<position>
+						<Point x="397" y="8387"/>
+					</position>
+					<size>
+						<Size width="6641" height="4498"/>
+					</size>
+				</StateGE>
+				<StateGE presentable="!ed/3383/7CB/1D60/5edf2c3139b6">
+					<position>
+						<Point x="10107" y="8308"/>
+					</position>
+					<size>
+						<Size width="7223" height="4604"/>
+					</size>
+				</StateGE>
+				<TransitionGE presentable="!ed/33c7/7CB/1D60/5edf2d07604">
+					<positions>
+						<Point x="5106" y="926"/>
+						<Point x="1588" y="3096"/>
+						<Point x="1138" y="5741"/>
+						<Point x="688" y="8387"/>
+					</positions>
+					<labelSize>
+						<Size width="2487" height="635"/>
+					</labelSize>
+					<labelPos>
+						<Point x="476" y="1879"/>
+					</labelPos>
+					<slashPos>
+						<Point x="2170" y="1879"/>
+					</slashPos>
+				</TransitionGE>
+				<TransitionGE presentable="!ed/33cb/7CB/1D60/5edf2d105588">
+					<positions>
+						<Point x="12303" y="847"/>
+						<Point x="15028" y="2196"/>
+						<Point x="15954" y="5265"/>
+						<Point x="16642" y="8308"/>
+					</positions>
+					<labelSize>
+						<Size width="3149" height="370"/>
+					</labelSize>
+					<labelPos>
+						<Point x="13733" y="1323"/>
+					</labelPos>
+					<slashPos>
+						<Point x="16088" y="1323"/>
+					</slashPos>
+				</TransitionGE>
+				<TransitionGE presentable="!ed/33ce/7CB/1D60/5edf2d2232ee">
+					<positions>
+						<Point x="7011" y="8599"/>
+						<Point x="7805" y="7911"/>
+						<Point x="9208" y="8149"/>
+						<Point x="10160" y="8493"/>
+					</positions>
+					<labelSize>
+						<Size width="3149" height="370"/>
+					</labelSize>
+					<labelPos>
+						<Point x="6165" y="7541"/>
+					</labelPos>
+					<slashPos>
+						<Point x="8520" y="7541"/>
+					</slashPos>
+				</TransitionGE>
+				<TransitionGE presentable="!ed/33d2/7CB/1D60/5edf2d365dd5">
+					<positions>
+						<Point x="5874" y="8387"/>
+						<Point x="6588" y="6879"/>
+						<Point x="6085" y="5715"/>
+						<Point x="5556" y="4551"/>
+					</positions>
+					<labelSize>
+						<Size width="3149" height="370"/>
+					</labelSize>
+					<labelPos>
+						<Point x="2169" y="6033"/>
+					</labelPos>
+					<slashPos>
+						<Point x="4524" y="6033"/>
+					</slashPos>
+				</TransitionGE>
+				<TransitionGE presentable="!ed/33de/7CB/1D60/5edf2d506e08">
+					<positions>
+						<Point x="11324" y="8308"/>
+						<Point x="9816" y="6720"/>
+						<Point x="10689" y="5636"/>
+						<Point x="11562" y="4551"/>
+					</positions>
+					<labelSize>
+						<Size width="3149" height="370"/>
+					</labelSize>
+					<labelPos>
+						<Point x="7143" y="5609"/>
+					</labelPos>
+					<slashPos>
+						<Point x="9498" y="5609"/>
+					</slashPos>
+				</TransitionGE>
+				<TransitionGE presentable="!ed/3458/7CB/1D60/5edf2ea62b47">
+					<positions>
+						<Point x="10160" y="12779"/>
+						<Point x="8520" y="13309"/>
+						<Point x="7779" y="13044"/>
+						<Point x="7011" y="12753"/>
+					</positions>
+					<labelSize>
+						<Size width="3149" height="370"/>
+					</labelSize>
+					<labelPos>
+						<Point x="6456" y="13203"/>
+					</labelPos>
+					<slashPos>
+						<Point x="8811" y="13203"/>
+					</slashPos>
+				</TransitionGE>
+				<EquationGE presentable="!ed/348d/7CB/1D60/5edf306855e9">
+					<position>
+						<Point x="10663" y="2223"/>
+					</position>
+					<size>
+						<Size width="317" height="502"/>
+					</size>
+				</EquationGE>
+				<EquationGE presentable="!ed/3493/7CB/1D60/5edf306c56c7">
+					<position>
+						<Point x="5212" y="10557"/>
+					</position>
+					<size>
+						<Size width="318" height="502"/>
+					</size>
+				</EquationGE>
+				<EquationGE presentable="!ed/349a/7CB/1D60/5edf3070553b">
+					<position>
+						<Point x="15610" y="10451"/>
+					</position>
+					<size>
+						<Size width="318" height="502"/>
+					</size>
+				</EquationGE>
+				<EquationGE kind="OBJ_LIT" presentable="!ed/34a7/7CB/1D60/5edf30755ccd">
+					<position>
+						<Point x="7990" y="2355"/>
+					</position>
+					<size>
+						<Size width="212" height="317"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/34a7/7CB/1D60/5edf30755ccd" dstEquation="!ed/348d/7CB/1D60/5edf306855e9">
+					<positions>
+						<Point x="8202" y="2514"/>
+						<Point x="9446" y="2514"/>
+						<Point x="9446" y="2514"/>
+						<Point x="10716" y="2514"/>
+					</positions>
+				</Edge>
+				<EquationGE kind="OBJ_LIT" presentable="!ed/34bd/7CB/1D60/5edf30951f3b">
+					<position>
+						<Point x="3281" y="10663"/>
+					</position>
+					<size>
+						<Size width="212" height="317"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/34bd/7CB/1D60/5edf30951f3b" dstEquation="!ed/3493/7CB/1D60/5edf306c56c7">
+					<positions>
+						<Point x="3493" y="10821"/>
+						<Point x="4366" y="10821"/>
+						<Point x="4366" y="10821"/>
+						<Point x="5265" y="10821"/>
+					</positions>
+				</Edge>
+				<EquationGE kind="OBJ_LIT" presentable="!ed/34d5/7CB/1D60/5edf30aa4bc6">
+					<position>
+						<Point x="13044" y="10557"/>
+					</position>
+					<size>
+						<Size width="212" height="318"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/34d5/7CB/1D60/5edf30aa4bc6" dstEquation="!ed/349a/7CB/1D60/5edf3070553b">
+					<positions>
+						<Point x="13256" y="10716"/>
+						<Point x="14446" y="10716"/>
+						<Point x="14446" y="10716"/>
+						<Point x="15663" y="10716"/>
+					</positions>
+				</Edge>
+			</presentationElements>
+		</NetDiagram>
+	</diagrams>
+</Operator>
+#end
+
+ManualMode(
+      #pragma ed    <Variable oid="!ed/33ec/7CB/1D60/5edf2da471a5"/>
+#end
+
+Press_N_to_S : bool; 
+      #pragma ed    <Variable oid="!ed/3401/7CB/1D60/5edf2dd25252"/>
+#end
+
+Press_S_to_E : bool; 
+      #pragma ed    <Variable oid="!ed/341a/7CB/1D60/5edf2e053121"/>
+#end
+
+Press_E_to_N : bool)
+returns (
+      #pragma ed    <Variable oid="!ed/3481/7CB/1D60/5edf302a79b9"/>
+#end
+
+Signal_Set : MANUAL_SIGNAL_TYPE)
+let
+   #pragma ed    <StateMachine oid="!ed/3365/7CB/1D60/5edf2bfa1bce"/>
+#end
+
+   automaton ManualMode
+      initial       #pragma ed       <State oid="!ed/3360/7CB/1D60/5edf2bf94b8b"/>
+#end
+
+state North_To_South
+      unless
+         #pragma ed          <Transition oid="!ed/33c7/7CB/1D60/5edf2d07604"/>
+#end
+
+         if Press_S_to_E
+            restart South_To_East;
+         #pragma ed          <Transition oid="!ed/33cb/7CB/1D60/5edf2d105588"/>
+#end
+
+         if Press_E_to_N
+            restart East_To_North;
+
+      var
+                  #pragma ed          <Variable oid="!ed/34a8/7CB/1D60/5edf3075358"/>
+#end
+
+_L1 : MANUAL_SIGNAL_TYPE;
+      let
+         #pragma ed          <Equation oid="!ed/348d/7CB/1D60/5edf306855e9"/>
+#end
+
+         Signal_Set = _L1;
+         #pragma ed          <Equation oid="!ed/34a7/7CB/1D60/5edf30755ccd"/>
+#end
+
+         _L1 = SET_N_TO_S_SIGNAL;
+      tel
+            #pragma ed       <State oid="!ed/337b/7CB/1D60/5edf2c2a1113"/>
+#end
+
+state South_To_East
+      unless
+         #pragma ed          <Transition oid="!ed/33ce/7CB/1D60/5edf2d2232ee"/>
+#end
+
+         if Press_E_to_N
+            restart East_To_North;
+         #pragma ed          <Transition oid="!ed/33d2/7CB/1D60/5edf2d365dd5"/>
+#end
+
+         if Press_N_to_S
+            restart North_To_South;
+
+      var
+                  #pragma ed          <Variable oid="!ed/34be/7CB/1D60/5edf30955f71"/>
+#end
+
+_L1 : MANUAL_SIGNAL_TYPE;
+      let
+         #pragma ed          <Equation oid="!ed/3493/7CB/1D60/5edf306c56c7"/>
+#end
+
+         Signal_Set = _L1;
+         #pragma ed          <Equation oid="!ed/34bd/7CB/1D60/5edf30951f3b"/>
+#end
+
+         _L1 = SET_S_TO_E_SIGNAL;
+      tel
+            #pragma ed       <State oid="!ed/3383/7CB/1D60/5edf2c3139b6"/>
+#end
+
+state East_To_North
+      unless
+         #pragma ed          <Transition oid="!ed/33de/7CB/1D60/5edf2d506e08"/>
+#end
+
+         if Press_N_to_S
+            restart North_To_South;
+         #pragma ed          <Transition oid="!ed/3458/7CB/1D60/5edf2ea62b47"/>
+#end
+
+         if Press_S_to_E
+            restart South_To_East;
+
+      var
+                  #pragma ed          <Variable oid="!ed/34d6/7CB/1D60/5edf30aa7cc0"/>
+#end
+
+_L1 : MANUAL_SIGNAL_TYPE;
+      let
+         #pragma ed          <Equation oid="!ed/349a/7CB/1D60/5edf3070553b"/>
+#end
+
+         Signal_Set = _L1;
+         #pragma ed          <Equation oid="!ed/34d5/7CB/1D60/5edf30aa4bc6"/>
+#end
+
+         _L1 = SET_E_TO_N_SIGNAL;
+      tel
+   returns .. ;
+tel
+
+   end;
+

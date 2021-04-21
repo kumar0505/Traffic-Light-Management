@@ -1,0 +1,70 @@
+$**************  SCADETOC Version 2019 R3 (build 20190802) **************
+** Generation date: 2020-05-21T13:11:37
+** Command: scade -code "D:\AdvanceTrafficLight\AdvanceTrafficLight.etp" -root TrafficLightController::State_Diagram -conf KCG
+*************************************************************$
+*** Generated Files Information (GENFIL): KCG- Generated files
+  at file D:\AdvanceTrafficLight\KCG\mapping.xml, line 0, character 0
+ ~mapping.xml
+  at file D:\AdvanceTrafficLight\KCG\kcg_metrics.txt, line 0, character 0
+ ~kcg_metrics.txt
+  at file D:\AdvanceTrafficLight\KCG\State_Diagram_TrafficLightController.c, line 0, character 0
+ ~State_Diagram_TrafficLightController.c
+  at file D:\AdvanceTrafficLight\KCG\Signal_Rotation_TrafficLightController.c, line 0, character 0
+ ~Signal_Rotation_TrafficLightController.c
+  at file D:\AdvanceTrafficLight\KCG\EastToNorth_TrafficLightController.c, line 0, character 0
+ ~EastToNorth_TrafficLightController.c
+  at file D:\AdvanceTrafficLight\KCG\SouthToEast_TrafficLightController.c, line 0, character 0
+ ~SouthToEast_TrafficLightController.c
+  at file D:\AdvanceTrafficLight\KCG\NorthToSouth_TrafficLightController.c, line 0, character 0
+ ~NorthToSouth_TrafficLightController.c
+  at file D:\AdvanceTrafficLight\KCG\Counter_TrafficLightController.c, line 0, character 0
+ ~Counter_TrafficLightController.c
+  at file D:\AdvanceTrafficLight\KCG\NorthSisnal_TrafficLightController.c, line 0, character 0
+ ~NorthSisnal_TrafficLightController.c
+  at file D:\AdvanceTrafficLight\KCG\SouthtSignal_TrafficLightController.c, line 0, character 0
+ ~SouthtSignal_TrafficLightController.c
+  at file D:\AdvanceTrafficLight\KCG\EastSignal_TrafficLightController.c, line 0, character 0
+ ~EastSignal_TrafficLightController.c
+  at file D:\AdvanceTrafficLight\KCG\State_Diagram_TrafficLightController.h, line 0, character 0
+ ~State_Diagram_TrafficLightController.h
+  at file D:\AdvanceTrafficLight\KCG\Signal_Rotation_TrafficLightController.h, line 0, character 0
+ ~Signal_Rotation_TrafficLightController.h
+  at file D:\AdvanceTrafficLight\KCG\EastToNorth_TrafficLightController.h, line 0, character 0
+ ~EastToNorth_TrafficLightController.h
+  at file D:\AdvanceTrafficLight\KCG\SouthToEast_TrafficLightController.h, line 0, character 0
+ ~SouthToEast_TrafficLightController.h
+  at file D:\AdvanceTrafficLight\KCG\NorthToSouth_TrafficLightController.h, line 0, character 0
+ ~NorthToSouth_TrafficLightController.h
+  at file D:\AdvanceTrafficLight\KCG\Counter_TrafficLightController.h, line 0, character 0
+ ~Counter_TrafficLightController.h
+  at file D:\AdvanceTrafficLight\KCG\NorthSisnal_TrafficLightController.h, line 0, character 0
+ ~NorthSisnal_TrafficLightController.h
+  at file D:\AdvanceTrafficLight\KCG\SouthtSignal_TrafficLightController.h, line 0, character 0
+ ~SouthtSignal_TrafficLightController.h
+  at file D:\AdvanceTrafficLight\KCG\EastSignal_TrafficLightController.h, line 0, character 0
+ ~EastSignal_TrafficLightController.h
+  at file D:\AdvanceTrafficLight\KCG\kcg_types.h, line 0, character 0
+ ~kcg_types.h
+  at file D:\AdvanceTrafficLight\KCG\kcg_consts.h, line 0, character 0
+ ~kcg_consts.h
+  at file D:\AdvanceTrafficLight\KCG\kcg_sensors.h, line 0, character 0
+ ~kcg_sensors.h
+  at file D:\AdvanceTrafficLight\KCG\kcg_types.c, line 0, character 0
+ ~kcg_types.c
+  at file D:\AdvanceTrafficLight\KCG\kcg_consts.c, line 0, character 0
+ ~kcg_consts.c
+  at file D:\AdvanceTrafficLight\KCG\config.txt, line 0, character 0
+ ~config.txt
+*** Generated Files Information (GENFIL): Code Generator Generated files
+  at file D:\AdvanceTrafficLight\KCG\user_macros.h, line 0, character 0
+ ~user_macros.h
+  at file D:\AdvanceTrafficLight\KCG\kcg_imported_types.h, line 0, character 0
+ ~kcg_imported_types.h
+  at file D:\AdvanceTrafficLight\KCG\sc2c.log, line 0, character 0
+ ~sc2c.log
+  at file D:\AdvanceTrafficLight\KCG\sc2c_integration_files.txt, line 0, character 0
+ ~sc2c_integration_files.txt
+$**************  SCADETOC Version 2019 R3 (build 20190802) **************
+** Generation date: 2020-05-21T13:11:38
+** sc2c.log
+*************************************************************$

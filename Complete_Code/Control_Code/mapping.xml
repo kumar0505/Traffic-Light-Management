@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config D:/AdvanceTrafficLight/KCG/config.txt
+** Generation date: 2020-05-21T13:10:54
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file" value="D:/AdvanceTrafficLight/KCG/scade_model_without_unused.scade"/>
+    <option name="probes" value="#off#"/>
+    <option name="debug" value="#off#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="D:/AdvanceTrafficLight/KCG"/>
+    <option name="target" value="C"/>
+    <option name="root" value="TrafficLightController::State_Diagram"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <array id="1" baseType="16" size="4"/>
+    <predefType id="2" name="bool"/>
+    <predefType id="3" name="char"/>
+    <predefType id="4" name="int8"/>
+    <predefType id="5" name="int16"/>
+    <predefType id="6" name="int32"/>
+    <predefType id="7" name="int64"/>
+    <predefType id="8" name="uint8"/>
+    <predefType id="9" name="uint16"/>
+    <predefType id="10" name="uint32"/>
+    <predefType id="11" name="uint64"/>
+    <predefType id="12" name="float32"/>
+    <predefType id="13" name="float64"/>
+    <predefType id="14" name="size"/>
+    <package id="15" name="TrafficLightController">
+      <type id="16" name="int" imported="false" type="4"/>
+      <type id="17" name="E_Signal" imported="false" type="1"/>
+      <type id="18" name="S_signal" imported="false" type="1"/>
+      <type id="19" name="N_signal" imported="false" type="1"/>
+      <operator id="20" name="State_Diagram" imported="false" root="true" expanded="false">
+        <input id="21" name="hour" clock="false" type="16"/>
+        <input id="22" name="min" clock="false" type="16"/>
+        <output id="23" name="EY" clock="false" type="2"/>
+        <output id="24" name="EGl" clock="false" type="2"/>
+        <output id="25" name="EGr" clock="false" type="2"/>
+        <output id="26" name="ER" clock="false" type="2"/>
+        <output id="27" name="SY" clock="false" type="2"/>
+        <output id="28" name="SGs" clock="false" type="2"/>
+        <output id="29" name="SGr" clock="false" type="2"/>
+        <output id="30" name="SR" clock="false" type="2"/>
+        <output id="31" name="NY" clock="false" type="2"/>
+        <output id="32" name="NGs" clock="false" type="2"/>
+        <output id="33" name="NGl" clock="false" type="2"/>
+        <output id="34" name="NR" clock="false" type="2"/>
+        <output id="35" name="Normal_Mode" clock="false" type="2"/>
+        <output id="36" name="Moderate_Mode" clock="false" type="2"/>
+        <output id="37" name="Peak_Mode" clock="false" type="2"/>
+        <automaton id="38" name="State_Diagram">
+          <state id="39" name="Normal" initial="false" final="true" default="false">
+            <instance id="40" name="1" op="59" expanded="false"/>
+            <instance id="41" name="1" op="81" expanded="false"/>
+            <instance id="42" name="1" op="102" expanded="false"/>
+            <fork id="43" name="1" kind="strong">
+              <transition id="44" dest="47"/>
+            </fork>
+            <fork id="45" name="2" kind="strong">
+              <transition id="46" dest="53"/>
+            </fork>
+          </state>
+          <state id="47" name="Moderate" initial="true" final="false" default="false">
+            <instance id="48" name="2" op="123" expanded="false"/>
+            <fork id="49" name="1" kind="strong">
+              <transition id="50" dest="39"/>
+            </fork>
+            <fork id="51" name="2" kind="strong">
+              <transition id="52" dest="53"/>
+            </fork>
+          </state>
+          <state id="53" name="peak" initial="false" final="false" default="false">
+            <instance id="54" name="3" op="123" expanded="false"/>
+            <fork id="55" name="1" kind="strong">
+              <transition id="56" dest="47"/>
+            </fork>
+            <fork id="57" name="2" kind="strong">
+              <transition id="58" dest="39"/>
+            </fork>
+          </state>
+        </automaton>
+      </operator>
+      <operator id="59" name="EastSignal" imported="false" root="false" expanded="false">
+        <input id="60" name="Input1" clock="false" type="16"/>
+        <input id="61" name="Input2" clock="false" type="16"/>
+        <input id="62" name="Input3" clock="false" type="16"/>
+        <input id="63" name="Input4" clock="false" type="16"/>
+        <output id="64" name="ER" clock="false" type="2"/>
+        <output id="65" name="EGr" clock="false" type="2"/>
+        <output id="66" name="EGl" clock="false" type="2"/>
+        <output id="67" name="EY" clock="false" type="2"/>
+        <instance id="68" name="4" op="80" expanded="true">
+          <input id="69" name="ITB_Input" clock="false" type="16"/>
+          <output id="70" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+        <instance id="71" name="5" op="80" expanded="true">
+          <input id="72" name="ITB_Input" clock="false" type="16"/>
+          <output id="73" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+        <instance id="74" name="6" op="80" expanded="true">
+          <input id="75" name="ITB_Input" clock="false" type="16"/>
+          <output id="76" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+        <instance id="77" name="7" op="80" expanded="true">
+          <input id="78" name="ITB_Input" clock="false" type="16"/>
+          <output id="79" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+      </operator>
+      <operator id="80" name="IntToBool" imported="false" root="false" expanded="true"/>
+      <operator id="81" name="SouthtSignal" imported="false" root="false" expanded="false">
+        <input id="82" name="Input1" clock="false" type="16"/>
+        <input id="83" name="Input2" clock="false" type="16"/>
+        <input id="84" name="Input3" clock="false" type="16"/>
+        <input id="85" name="Input4" clock="false" type="16"/>
+        <output id="86" name="SR" clock="false" type="2"/>
+        <output id="87" name="SGr" clock="false" type="2"/>
+        <output id="88" name="SGs" clock="false" type="2"/>
+        <output id="89" name="SY" clock="false" type="2"/>
+        <instance id="90" name="1" op="80" expanded="true">
+          <input id="91" name="ITB_Input" clock="false" type="16"/>
+          <output id="92" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+        <instance id="93" name="2" op="80" expanded="true">
+          <input id="94" name="ITB_Input" clock="false" type="16"/>
+          <output id="95" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+        <instance id="96" name="3" op="80" expanded="true">
+          <input id="97" name="ITB_Input" clock="false" type="16"/>
+          <output id="98" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+        <instance id="99" name="4" op="80" expanded="true">
+          <input id="100" name="ITB_Input" clock="false" type="16"/>
+          <output id="101" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+      </operator>
+      <operator id="102" name="NorthSisnal" imported="false" root="false" expanded="false">
+        <input id="103" name="Input1" clock="false" type="16"/>
+        <input id="104" name="Input2" clock="false" type="16"/>
+        <input id="105" name="Input3" clock="false" type="16"/>
+        <input id="106" name="Input4" clock="false" type="16"/>
+        <output id="107" name="NR" clock="false" type="2"/>
+        <output id="108" name="NGl" clock="false" type="2"/>
+        <output id="109" name="NGs" clock="false" type="2"/>
+        <output id="110" name="NY" clock="false" type="2"/>
+        <instance id="111" name="1" op="80" expanded="true">
+          <input id="112" name="ITB_Input" clock="false" type="16"/>
+          <output id="113" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+        <instance id="114" name="2" op="80" expanded="true">
+          <input id="115" name="ITB_Input" clock="false" type="16"/>
+          <output id="116" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+        <instance id="117" name="3" op="80" expanded="true">
+          <input id="118" name="ITB_Input" clock="false" type="16"/>
+          <output id="119" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+        <instance id="120" name="4" op="80" expanded="true">
+          <input id="121" name="ITB_Input" clock="false" type="16"/>
+          <output id="122" name="ITB_Output" clock="false" type="2"/>
+        </instance>
+      </operator>
+      <operator id="123" name="Signal_Rotation" imported="false" root="false" expanded="false">
+        <input id="124" name="Tnts" clock="false" type="16"/>
+        <input id="125" name="Tetn" clock="false" type="16"/>
+        <input id="126" name="Tste" clock="false" type="16"/>
+        <output id="127" name="EY" clock="false" type="2"/>
+        <output id="128" name="EGl" clock="false" type="2"/>
+        <output id="129" name="EGr" clock="false" type="2"/>
+        <output id="130" name="ER" clock="false" type="2"/>
+        <output id="131" name="SY" clock="false" type="2"/>
+        <output id="132" name="SGs" clock="false" type="2"/>
+        <output id="133" name="SGr" clock="false" type="2"/>
+        <output id="134" name="SR" clock="false" type="2"/>
+        <output id="135" name="NY" clock="false" type="2"/>
+        <output id="136" name="NGs" clock="false" type="2"/>
+        <output id="137" name="NGl" clock="false" type="2"/>
+        <output id="138" name="NR" clock="false" type="2"/>
+        <output id="139" name="Tout1" clock="false" type="2"/>
+        <output id="140" name="Tout2" clock="false" type="2"/>
+        <output id="141" name="Tout3" clock="false" type="2"/>
+        <automaton id="142" name="SM1">
+          <state id="143" name="Normal" initial="true" final="false" default="false">
+            <automaton id="144" name="SM2">
+              <state id="145" name="NTS" initial="true" final="false" default="false">
+                <instance id="146" name="1" op="160" expanded="false"/>
+                <fork id="147" name="1" kind="strong">
+                  <transition id="148" dest="149"/>
+                </fork>
+              </state>
+              <state id="149" name="STE" initial="false" final="false" default="false">
+                <instance id="150" name="1" op="191" expanded="false"/>
+                <fork id="151" name="1" kind="strong">
+                  <transition id="152" dest="153"/>
+                </fork>
+              </state>
+              <state id="153" name="ETN" initial="false" final="false" default="false">
+                <instance id="154" name="1" op="217" expanded="false"/>
+                <fork id="155" name="1" kind="strong">
+                  <transition id="156" dest="145"/>
+                </fork>
+              </state>
+            </automaton>
+          </state>
+        </automaton>
+        <instance id="157" name="1" op="186" expanded="false"/>
+        <instance id="158" name="2" op="186" expanded="false"/>
+        <instance id="159" name="3" op="186" expanded="false"/>
+      </operator>
+      <operator id="160" name="NorthToSouth" imported="false" root="false" expanded="false">
+        <input id="161" name="Tnts" clock="false" type="16"/>
+        <output id="162" name="NR" clock="false" type="2"/>
+        <output id="163" name="NGl" clock="false" type="2"/>
+        <output id="164" name="NGs" clock="false" type="2"/>
+        <output id="165" name="NY" clock="false" type="2"/>
+        <output id="166" name="SR" clock="false" type="2"/>
+        <output id="167" name="SGr" clock="false" type="2"/>
+        <output id="168" name="SGs" clock="false" type="2"/>
+        <output id="169" name="SY" clock="false" type="2"/>
+        <output id="170" name="ER" clock="false" type="2"/>
+        <output id="171" name="EGr" clock="false" type="2"/>
+        <output id="172" name="EGl" clock="false" type="2"/>
+        <output id="173" name="EY" clock="false" type="2"/>
+        <automaton id="174" name="NTS">
+          <state id="175" name="Running" initial="true" final="false" default="false">
+            <instance id="176" name="1" op="102" expanded="false"/>
+            <instance id="177" name="1" op="81" expanded="false"/>
+            <instance id="178" name="1" op="59" expanded="false"/>
+            <fork id="179" name="1" kind="strong">
+              <transition id="180" dest="181"/>
+            </fork>
+          </state>
+          <state id="181" name="Stopping" initial="false" final="false" default="false">
+            <instance id="182" name="2" op="102" expanded="false"/>
+            <instance id="183" name="2" op="81" expanded="false"/>
+            <instance id="184" name="3" op="59" expanded="false"/>
+          </state>
+        </automaton>
+        <instance id="185" name="1" op="186" expanded="false"/>
+      </operator>
+      <operator id="186" name="Counter" imported="false" root="false" expanded="false">
+        <input id="187" name="modulo" clock="false" type="16"/>
+        <output id="188" name="count" clock="false" type="16"/>
+        <output id="189" name="rippleClock" clock="false" type="2"/>
+        <fby id="190" name="1"/>
+      </operator>
+      <operator id="191" name="SouthToEast" imported="false" root="false" expanded="false">
+        <input id="192" name="Tste" clock="false" type="16"/>
+        <output id="193" name="EY" clock="false" type="2"/>
+        <output id="194" name="EGl" clock="false" type="2"/>
+        <output id="195" name="EGr" clock="false" type="2"/>
+        <output id="196" name="ER" clock="false" type="2"/>
+        <output id="197" name="SY" clock="false" type="2"/>
+        <output id="198" name="SGs" clock="false" type="2"/>
+        <output id="199" name="SGr" clock="false" type="2"/>
+        <output id="200" name="SR" clock="false" type="2"/>
+        <output id="201" name="NY" clock="false" type="2"/>
+        <output id="202" name="NGs" clock="false" type="2"/>
+        <output id="203" name="NGl" clock="false" type="2"/>
+        <output id="204" name="NR" clock="false" type="2"/>
+        <automaton id="205" name="STE">
+          <state id="206" name="Running" initial="true" final="false" default="false">
+            <instance id="207" name="1" op="102" expanded="false"/>
+            <instance id="208" name="1" op="81" expanded="false"/>
+            <instance id="209" name="1" op="59" expanded="false"/>
+            <fork id="210" name="1" kind="strong">
+              <transition id="211" dest="212"/>
+            </fork>
+          </state>
+          <state id="212" name="Stopping" initial="false" final="false" default="false">
+            <instance id="213" name="2" op="102" expanded="false"/>
+            <instance id="214" name="2" op="81" expanded="false"/>
+            <instance id="215" name="2" op="59" expanded="false"/>
+          </state>
+        </automaton>
+        <instance id="216" name="1" op="186" expanded="false"/>
+      </operator>
+      <operator id="217" name="EastToNorth" imported="false" root="false" expanded="false">
+        <input id="218" name="Tetn" clock="false" type="16"/>
+        <output id="219" name="EY" clock="false" type="2"/>
+        <output id="220" name="EGl" clock="false" type="2"/>
+        <output id="221" name="EGr" clock="false" type="2"/>
+        <output id="222" name="ER" clock="false" type="2"/>
+        <output id="223" name="SY" clock="false" type="2"/>
+        <output id="224" name="SGs" clock="false" type="2"/>
+        <output id="225" name="SGr" clock="false" type="2"/>
+        <output id="226" name="SR" clock="false" type="2"/>
+        <output id="227" name="NY" clock="false" type="2"/>
+        <output id="228" name="NGs" clock="false" type="2"/>
+        <output id="229" name="NGl" clock="false" type="2"/>
+        <output id="230" name="NR" clock="false" type="2"/>
+        <automaton id="231" name="NTE">
+          <state id="232" name="Running" initial="true" final="false" default="false">
+            <instance id="233" name="1" op="102" expanded="false"/>
+            <instance id="234" name="1" op="81" expanded="false"/>
+            <instance id="235" name="1" op="59" expanded="false"/>
+            <fork id="236" name="1" kind="strong">
+              <transition id="237" dest="238"/>
+            </fork>
+          </state>
+          <state id="238" name="Stopping" initial="false" final="false" default="false">
+            <instance id="239" name="2" op="102" expanded="false"/>
+            <instance id="240" name="2" op="81" expanded="false"/>
+            <instance id="241" name="2" op="59" expanded="false"/>
+          </state>
+        </automaton>
+        <instance id="242" name="1" op="186" expanded="false"/>
+      </operator>
+    </package>
+  </model>
+  <generated>
+    <c>
+      <file id="243" name="State_Diagram_TrafficLightController.h">
+        <function id="244" name="State_Diagram_init_TrafficLightController">
+          <parameter id="245" name="outC" type="251" pointer="true"/>
+        </function>
+        <function id="246" name="State_Diagram_reset_TrafficLightController">
+          <parameter id="247" name="outC" type="251" pointer="true"/>
+        </function>
+        <function id="248" name="State_Diagram_TrafficLightController">
+          <parameter id="249" name="inC" type="270" pointer="true"/>
+          <parameter id="250" name="outC" type="251" pointer="true"/>
+        </function>
+        <struct id="251" name="outC_State_Diagram_TrafficLightController">
+          <field id="252" name="EY" type="511" pointer="false"/>
+          <field id="253" name="EGl" type="511" pointer="false"/>
+          <field id="254" name="EGr" type="511" pointer="false"/>
+          <field id="255" name="ER" type="511" pointer="false"/>
+          <field id="256" name="SY" type="511" pointer="false"/>
+          <field id="257" name="SGs" type="511" pointer="false"/>
+          <field id="258" name="SGr" type="511" pointer="false"/>
+          <field id="259" name="SR" type="511" pointer="false"/>
+          <field id="260" name="NY" type="511" pointer="false"/>
+          <field id="261" name="NGs" type="511" pointer="false"/>
+          <field id="262" name="NGl" type="511" pointer="false"/>
+          <field id="263" name="NR" type="511" pointer="false"/>
+          <field id="264" name="Normal_Mode" type="511" pointer="false"/>
+          <field id="265" name="Moderate_Mode" type="511" pointer="false"/>
+          <field id="266" name="Peak_Mode" type="511" pointer="false"/>
+          <field id="267" name="State_Diagram_state_nxt" type="434" pointer="false"/>
+          <field id="268" name="Context_Signal_Rotation_2" type="283" pointer="false"/>
+          <field id="269" name="Context_Signal_Rotation_3" type="283" pointer="false"/>
+        </struct>
+        <struct id="270" name="inC_State_Diagram_TrafficLightController">
+          <field id="271" name="hour" type="433" pointer="false"/>
+          <field id="272" name="min" type="433" pointer="false"/>
+        </struct>
+      </file>
+      <file id="273" name="Signal_Rotation_TrafficLightController.h">
+        <function id="274" name="Signal_Rotation_init_TrafficLightController">
+          <parameter id="275" name="outC" type="283" pointer="true"/>
+        </function>
+        <function id="276" name="Signal_Rotation_reset_TrafficLightController">
+          <parameter id="277" name="outC" type="283" pointer="true"/>
+        </function>
+        <function id="278" name="Signal_Rotation_TrafficLightController">
+          <parameter id="279" name="Tnts" type="433" pointer="false"/>
+          <parameter id="280" name="Tetn" type="433" pointer="false"/>
+          <parameter id="281" name="Tste" type="433" pointer="false"/>
+          <parameter id="282" name="outC" type="283" pointer="true"/>
+        </function>
+        <struct id="283" name="outC_Signal_Rotation_TrafficLightController">
+          <field id="284" name="EY" type="511" pointer="false"/>
+          <field id="285" name="EGl" type="511" pointer="false"/>
+          <field id="286" name="EGr" type="511" pointer="false"/>
+          <field id="287" name="ER" type="511" pointer="false"/>
+          <field id="288" name="SY" type="511" pointer="false"/>
+          <field id="289" name="SGs" type="511" pointer="false"/>
+          <field id="290" name="SGr" type="511" pointer="false"/>
+          <field id="291" name="SR" type="511" pointer="false"/>
+          <field id="292" name="NY" type="511" pointer="false"/>
+          <field id="293" name="NGs" type="511" pointer="false"/>
+          <field id="294" name="NGl" type="511" pointer="false"/>
+          <field id="295" name="NR" type="511" pointer="false"/>
+          <field id="296" name="Tout1" type="511" pointer="false"/>
+          <field id="297" name="Tout2" type="511" pointer="false"/>
+          <field id="298" name="Tout3" type="511" pointer="false"/>
+          <field id="299" name="SM2_state_nxt_Normal_SM1" type="446" pointer="false"/>
+          <field id="300" name="Context_NorthToSouth_1" type="360" pointer="false"/>
+          <field id="301" name="Context_SouthToEast_1" type="337" pointer="false"/>
+          <field id="302" name="Context_EastToNorth_1" type="314" pointer="false"/>
+          <field id="303" name="Context_Counter_1" type="383" pointer="false"/>
+          <field id="304" name="Context_Counter_2" type="383" pointer="false"/>
+          <field id="305" name="Context_Counter_3" type="383" pointer="false"/>
+        </struct>
+      </file>
+      <file id="306" name="EastToNorth_TrafficLightController.h">
+        <function id="307" name="EastToNorth_init_TrafficLightController">
+          <parameter id="308" name="outC" type="314" pointer="true"/>
+        </function>
+        <function id="309" name="EastToNorth_reset_TrafficLightController">
+          <parameter id="310" name="outC" type="314" pointer="true"/>
+        </function>
+        <function id="311" name="EastToNorth_TrafficLightController">
+          <parameter id="312" name="Tetn" type="433" pointer="false"/>
+          <parameter id="313" name="outC" type="314" pointer="true"/>
+        </function>
+        <struct id="314" name="outC_EastToNorth_TrafficLightController">
+          <field id="315" name="EY" type="511" pointer="false"/>
+          <field id="316" name="EGl" type="511" pointer="false"/>
+          <field id="317" name="EGr" type="511" pointer="false"/>
+          <field id="318" name="ER" type="511" pointer="false"/>
+          <field id="319" name="SY" type="511" pointer="false"/>
+          <field id="320" name="SGs" type="511" pointer="false"/>
+          <field id="321" name="SGr" type="511" pointer="false"/>
+          <field id="322" name="SR" type="511" pointer="false"/>
+          <field id="323" name="NY" type="511" pointer="false"/>
+          <field id="324" name="NGs" type="511" pointer="false"/>
+          <field id="325" name="NGl" type="511" pointer="false"/>
+          <field id="326" name="NR" type="511" pointer="false"/>
+          <field id="327" name="NTE_state_nxt" type="459" pointer="false"/>
+          <field id="328" name="Context_Counter_1" type="383" pointer="false"/>
+        </struct>
+      </file>
+      <file id="329" name="SouthToEast_TrafficLightController.h">
+        <function id="330" name="SouthToEast_init_TrafficLightController">
+          <parameter id="331" name="outC" type="337" pointer="true"/>
+        </function>
+        <function id="332" name="SouthToEast_reset_TrafficLightController">
+          <parameter id="333" name="outC" type="337" pointer="true"/>
+        </function>
+        <function id="334" name="SouthToEast_TrafficLightController">
+          <parameter id="335" name="Tste" type="433" pointer="false"/>
+          <parameter id="336" name="outC" type="337" pointer="true"/>
+        </function>
+        <struct id="337" name="outC_SouthToEast_TrafficLightController">
+          <field id="338" name="EY" type="511" pointer="false"/>
+          <field id="339" name="EGl" type="511" pointer="false"/>
+          <field id="340" name="EGr" type="511" pointer="false"/>
+          <field id="341" name="ER" type="511" pointer="false"/>
+          <field id="342" name="SY" type="511" pointer="false"/>
+          <field id="343" name="SGs" type="511" pointer="false"/>
+          <field id="344" name="SGr" type="511" pointer="false"/>
+          <field id="345" name="SR" type="511" pointer="false"/>
+          <field id="346" name="NY" type="511" pointer="false"/>
+          <field id="347" name="NGs" type="511" pointer="false"/>
+          <field id="348" name="NGl" type="511" pointer="false"/>
+          <field id="349" name="NR" type="511" pointer="false"/>
+          <field id="350" name="STE_state_nxt" type="465" pointer="false"/>
+          <field id="351" name="Context_Counter_1" type="383" pointer="false"/>
+        </struct>
+      </file>
+      <file id="352" name="NorthToSouth_TrafficLightController.h">
+        <function id="353" name="NorthToSouth_init_TrafficLightController">
+          <parameter id="354" name="outC" type="360" pointer="true"/>
+        </function>
+        <function id="355" name="NorthToSouth_reset_TrafficLightController">
+          <parameter id="356" name="outC" type="360" pointer="true"/>
+        </function>
+        <function id="357" name="NorthToSouth_TrafficLightController">
+          <parameter id="358" name="Tnts" type="433" pointer="false"/>
+          <parameter id="359" name="outC" type="360" pointer="true"/>
+        </function>
+        <struct id="360" name="outC_NorthToSouth_TrafficLightController">
+          <field id="361" name="NR" type="511" pointer="false"/>
+          <field id="362" name="NGl" type="511" pointer="false"/>
+          <field id="363" name="NGs" type="511" pointer="false"/>
+          <field id="364" name="NY" type="511" pointer="false"/>
+          <field id="365" name="SR" type="511" pointer="false"/>
+          <field id="366" name="SGr" type="511" pointer="false"/>
+          <field id="367" name="SGs" type="511" pointer="false"/>
+          <field id="368" name="SY" type="511" pointer="false"/>
+          <field id="369" name="ER" type="511" pointer="false"/>
+          <field id="370" name="EGr" type="511" pointer="false"/>
+          <field id="371" name="EGl" type="511" pointer="false"/>
+          <field id="372" name="EY" type="511" pointer="false"/>
+          <field id="373" name="NTS_state_nxt" type="471" pointer="false"/>
+          <field id="374" name="Context_Counter_1" type="383" pointer="false"/>
+        </struct>
+      </file>
+      <file id="375" name="Counter_TrafficLightController.h">
+        <function id="376" name="Counter_init_TrafficLightController">
+          <parameter id="377" name="outC" type="383" pointer="true"/>
+        </function>
+        <function id="378" name="Counter_reset_TrafficLightController">
+          <parameter id="379" name="outC" type="383" pointer="true"/>
+        </function>
+        <function id="380" name="Counter_TrafficLightController">
+          <parameter id="381" name="modulo" type="433" pointer="false"/>
+          <parameter id="382" name="outC" type="383" pointer="true"/>
+        </function>
+        <struct id="383" name="outC_Counter_TrafficLightController">
+          <field id="384" name="count" type="433" pointer="false"/>
+          <field id="385" name="rippleClock" type="511" pointer="false"/>
+          <field id="386" name="_L4" type="500" pointer="false"/>
+        </struct>
+      </file>
+      <file id="387" name="NorthSisnal_TrafficLightController.h">
+        <function id="388" name="NorthSisnal_TrafficLightController">
+          <parameter id="389" name="Input1" type="433" pointer="false"/>
+          <parameter id="390" name="Input2" type="433" pointer="false"/>
+          <parameter id="391" name="Input3" type="433" pointer="false"/>
+          <parameter id="392" name="Input4" type="433" pointer="false"/>
+          <parameter id="393" name="NR" type="511" pointer="true"/>
+          <parameter id="394" name="NGl" type="511" pointer="true"/>
+          <parameter id="395" name="NGs" type="511" pointer="true"/>
+          <parameter id="396" name="NY" type="511" pointer="true"/>
+        </function>
+      </file>
+      <file id="397" name="SouthtSignal_TrafficLightController.h">
+        <function id="398" name="SouthtSignal_TrafficLightController">
+          <parameter id="399" name="Input1" type="433" pointer="false"/>
+          <parameter id="400" name="Input2" type="433" pointer="false"/>
+          <parameter id="401" name="Input3" type="433" pointer="false"/>
+          <parameter id="402" name="Input4" type="433" pointer="false"/>
+          <parameter id="403" name="SR" type="511" pointer="true"/>
+          <parameter id="404" name="SGr" type="511" pointer="true"/>
+          <parameter id="405" name="SGs" type="511" pointer="true"/>
+          <parameter id="406" name="SY" type="511" pointer="true"/>
+        </function>
+      </file>
+      <file id="407" name="EastSignal_TrafficLightController.h">
+        <function id="408" name="EastSignal_TrafficLightController">
+          <parameter id="409" name="Input1" type="433" pointer="false"/>
+          <parameter id="410" name="Input2" type="433" pointer="false"/>
+          <parameter id="411" name="Input3" type="433" pointer="false"/>
+          <parameter id="412" name="Input4" type="433" pointer="false"/>
+          <parameter id="413" name="ER" type="511" pointer="true"/>
+          <parameter id="414" name="EGr" type="511" pointer="true"/>
+          <parameter id="415" name="EGl" type="511" pointer="true"/>
+          <parameter id="416" name="EY" type="511" pointer="true"/>
+        </function>
+      </file>
+      <file id="417" name="kcg_types.h">
+        <macro id="418" name="kcg_copy_N_signal_TrafficLightController"/>
+        <macro id="419" name="kcg_comp_N_signal_TrafficLightController"/>
+        <macro id="420" name="kcg_copy_S_signal_TrafficLightController"/>
+        <macro id="421" name="kcg_comp_S_signal_TrafficLightController"/>
+        <macro id="422" name="kcg_copy_E_Signal_TrafficLightController"/>
+        <macro id="423" name="kcg_comp_E_Signal_TrafficLightController"/>
+        <ifdef id="424" name="kcg_use_array_int8_4">
+          <function id="425" name="kcg_comp_array_int8_4" returnType="511">
+            <parameter id="426" name="kcg_c1" type="432" pointer="true"/>
+            <parameter id="427" name="kcg_c2" type="432" pointer="true"/>
+          </function>
+        </ifdef>
+        <macro id="428" name="kcg_copy_array_int8_4"/>
+        <typedef id="429" name="E_Signal_TrafficLightController" aliasType="432"/>
+        <typedef id="430" name="S_signal_TrafficLightController" aliasType="432"/>
+        <typedef id="431" name="N_signal_TrafficLightController" aliasType="432"/>
+        <array id="432" name="array_int8_4" baseType="500" size="4"/>
+        <typedef id="433" name="int_TrafficLightController" aliasType="500"/>
+        <enum id="434" name="SSM_ST_State_Diagram" tagName="kcg_tag_SSM_ST_State_Diagram">
+          <value id="435" name="SSM_st_Normal_State_Diagram"/>
+          <value id="436" name="SSM_st_Moderate_State_Diagram"/>
+          <value id="437" name="SSM_st_peak_State_Diagram"/>
+        </enum>
+        <enum id="438" name="SSM_TR_State_Diagram" tagName="kcg_tag_SSM_TR_State_Diagram">
+          <value id="439" name="SSM_TR_no_trans_State_Diagram"/>
+          <value id="440" name="SSM_TR_Normal_Moderate_1_Normal_State_Diagram"/>
+          <value id="441" name="SSM_TR_Normal_peak_2_Normal_State_Diagram"/>
+          <value id="442" name="SSM_TR_Moderate_Normal_1_Moderate_State_Diagram"/>
+          <value id="443" name="SSM_TR_Moderate_peak_2_Moderate_State_Diagram"/>
+          <value id="444" name="SSM_TR_peak_Moderate_1_peak_State_Diagram"/>
+          <value id="445" name="SSM_TR_peak_Normal_2_peak_State_Diagram"/>
+        </enum>
+        <enum id="446" name="SSM_ST_SM2_Normal_SM1" tagName="kcg_tag_SSM_ST_SM2_Normal_SM1">
+          <value id="447" name="SSM_st_NTS_SM2_Normal_SM1"/>
+          <value id="448" name="SSM_st_STE_SM2_Normal_SM1"/>
+          <value id="449" name="SSM_st_ETN_SM2_Normal_SM1"/>
+        </enum>
+        <enum id="450" name="SSM_TR_SM2_Normal_SM1" tagName="kcg_tag_SSM_TR_SM2_Normal_SM1">
+          <value id="451" name="SSM_TR_no_trans_SM2_Normal_SM1"/>
+          <value id="452" name="SSM_TR_NTS_STE_1_NTS_SM2_Normal_SM1"/>
+          <value id="453" name="SSM_TR_STE_ETN_1_STE_SM2_Normal_SM1"/>
+          <value id="454" name="SSM_TR_ETN_NTS_1_ETN_SM2_Normal_SM1"/>
+        </enum>
+        <enum id="455" name="SSM_ST_SM1" tagName="kcg_tag_SSM_ST_SM1">
+          <value id="456" name="SSM_st_Normal_SM1"/>
+        </enum>
+        <enum id="457" name="SSM_TR_SM1" tagName="kcg_tag_SSM_TR_SM1">
+          <value id="458" name="SSM_TR_no_trans_SM1"/>
+        </enum>
+        <enum id="459" name="SSM_ST_NTE" tagName="kcg_tag_SSM_ST_NTE">
+          <value id="460" name="SSM_st_Running_NTE"/>
+          <value id="461" name="SSM_st_Stopping_NTE"/>
+        </enum>
+        <enum id="462" name="SSM_TR_NTE" tagName="kcg_tag_SSM_TR_NTE">
+          <value id="463" name="SSM_TR_no_trans_NTE"/>
+          <value id="464" name="SSM_TR_Running_Stopping_1_Running_NTE"/>
+        </enum>
+        <enum id="465" name="SSM_ST_STE" tagName="kcg_tag_SSM_ST_STE">
+          <value id="466" name="SSM_st_Running_STE"/>
+          <value id="467" name="SSM_st_Stopping_STE"/>
+        </enum>
+        <enum id="468" name="SSM_TR_STE" tagName="kcg_tag_SSM_TR_STE">
+          <value id="469" name="SSM_TR_no_trans_STE"/>
+          <value id="470" name="_2_SSM_TR_Running_Stopping_1_Running_STE"/>
+        </enum>
+        <enum id="471" name="SSM_ST_NTS" tagName="kcg_tag_SSM_ST_NTS">
+          <value id="472" name="SSM_st_Running_NTS"/>
+          <value id="473" name="SSM_st_Stopping_NTS"/>
+        </enum>
+        <enum id="474" name="SSM_TR_NTS" tagName="kcg_tag_SSM_TR_NTS">
+          <value id="475" name="SSM_TR_no_trans_NTS"/>
+          <value id="476" name="_3_SSM_TR_Running_Stopping_1_Running_NTS"/>
+        </enum>
+        <macro id="477" name="kcg_assign_array"/>
+        <macro id="478" name="kcg_assign_struct"/>
+        <macro id="479" name="kcg_lnot_uint8"/>
+        <macro id="480" name="kcg_lnot_uint16"/>
+        <macro id="481" name="kcg_lnot_uint32"/>
+        <macro id="482" name="kcg_lnot_uint64"/>
+        <macro id="483" name="kcg_lsl_uint8"/>
+        <macro id="484" name="kcg_lsl_uint16"/>
+        <macro id="485" name="kcg_lsl_uint32"/>
+        <macro id="486" name="kcg_lsl_uint64"/>
+        <macro id="487" name="kcg_true"/>
+        <macro id="488" name="kcg_false"/>
+        <macro id="489" name="kcg_lit_int8"/>
+        <macro id="490" name="kcg_lit_int16"/>
+        <macro id="491" name="kcg_lit_int32"/>
+        <macro id="492" name="kcg_lit_int64"/>
+        <macro id="493" name="kcg_lit_uint8"/>
+        <macro id="494" name="kcg_lit_uint16"/>
+        <macro id="495" name="kcg_lit_uint32"/>
+        <macro id="496" name="kcg_lit_uint64"/>
+        <macro id="497" name="kcg_lit_size"/>
+        <macro id="498" name="kcg_lit_float64"/>
+        <macro id="499" name="kcg_lit_float32"/>
+        <predefType id="500" name="kcg_int8"/>
+        <predefType id="501" name="kcg_int16"/>
+        <predefType id="502" name="kcg_int32"/>
+        <predefType id="503" name="kcg_int64"/>
+        <predefType id="504" name="kcg_uint8"/>
+        <predefType id="505" name="kcg_uint16"/>
+        <predefType id="506" name="kcg_uint32"/>
+        <predefType id="507" name="kcg_uint64"/>
+        <predefType id="508" name="kcg_size"/>
+        <predefType id="509" name="kcg_float64"/>
+        <predefType id="510" name="kcg_float32"/>
+        <predefType id="511" name="kcg_bool"/>
+        <predefType id="512" name="kcg_char"/>
+        <macro id="513" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="514" name="kcg_consts.h"/>
+      <file id="515" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="431" dstId="419" role="type-comparison"/>
+    <map srcId="431" dstId="418" role="type-copy"/>
+    <map srcId="430" dstId="421" role="type-comparison"/>
+    <map srcId="430" dstId="420" role="type-copy"/>
+    <map srcId="429" dstId="423" role="type-comparison"/>
+    <map srcId="429" dstId="422" role="type-copy"/>
+    <map srcId="509" dstId="498" role="wrapped-lit"/>
+    <map srcId="510" dstId="499" role="wrapped-lit"/>
+    <map srcId="508" dstId="497" role="wrapped-lit"/>
+    <map srcId="507" dstId="496" role="wrapped-lit"/>
+    <map srcId="507" dstId="482" role="wrapped-lnot"/>
+    <map srcId="507" dstId="486" role="wrapped-lsl"/>
+    <map srcId="506" dstId="495" role="wrapped-lit"/>
+    <map srcId="506" dstId="481" role="wrapped-lnot"/>
+    <map srcId="506" dstId="485" role="wrapped-lsl"/>
+    <map srcId="505" dstId="494" role="wrapped-lit"/>
+    <map srcId="505" dstId="480" role="wrapped-lnot"/>
+    <map srcId="505" dstId="484" role="wrapped-lsl"/>
+    <map srcId="504" dstId="493" role="wrapped-lit"/>
+    <map srcId="504" dstId="479" role="wrapped-lnot"/>
+    <map srcId="504" dstId="483" role="wrapped-lsl"/>
+    <map srcId="503" dstId="492" role="wrapped-lit"/>
+    <map srcId="502" dstId="491" role="wrapped-lit"/>
+    <map srcId="501" dstId="490" role="wrapped-lit"/>
+    <map srcId="500" dstId="489" role="wrapped-lit"/>
+    <map srcId="432" dstId="424" role="type-use"/>
+    <map srcId="432" dstId="425" role="type-comparison"/>
+    <map srcId="432" dstId="428" role="type-copy"/>
+  </generated>
+  <map modelId="180" generatedId="476"/>
+  <map modelId="174" generatedId="475" role="autom-no-trans-enum"/>
+  <map modelId="211" generatedId="470"/>
+  <map modelId="205" generatedId="469" role="autom-no-trans-enum"/>
+  <map modelId="237" generatedId="464"/>
+  <map modelId="231" generatedId="463" role="autom-no-trans-enum"/>
+  <map modelId="142" generatedId="458" role="autom-no-trans-enum"/>
+  <map modelId="143" generatedId="456"/>
+  <map modelId="156" generatedId="454"/>
+  <map modelId="152" generatedId="453"/>
+  <map modelId="148" generatedId="452"/>
+  <map modelId="144" generatedId="451" role="autom-no-trans-enum"/>
+  <map modelId="58" generatedId="445"/>
+  <map modelId="56" generatedId="444"/>
+  <map modelId="52" generatedId="443"/>
+  <map modelId="50" generatedId="442"/>
+  <map modelId="46" generatedId="441"/>
+  <map modelId="44" generatedId="440"/>
+  <map modelId="38" generatedId="439" role="autom-no-trans-enum"/>
+  <map modelId="53" generatedId="437"/>
+  <map modelId="39" generatedId="435"/>
+  <map modelId="47" generatedId="436"/>
+  <map modelId="149" generatedId="448"/>
+  <map modelId="153" generatedId="449"/>
+  <map modelId="145" generatedId="447"/>
+  <map modelId="232" generatedId="460"/>
+  <map modelId="238" generatedId="461"/>
+  <map modelId="206" generatedId="466"/>
+  <map modelId="212" generatedId="467"/>
+  <map modelId="175" generatedId="472"/>
+  <map modelId="181" generatedId="473"/>
+  <map modelId="20" generatedId="245" role="context-parameter"/>
+  <map modelId="20" generatedId="244" role="init-method"/>
+  <map modelId="20" generatedId="247" role="context-parameter"/>
+  <map modelId="20" generatedId="246" role="reset-method"/>
+  <map modelId="20" generatedId="249" role="input-struct-parameter"/>
+  <map modelId="22" generatedId="272"/>
+  <map modelId="21" generatedId="271"/>
+  <map modelId="20" generatedId="270" role="input-struct-type"/>
+  <map modelId="20" generatedId="250" role="context-parameter"/>
+  <map modelId="54" generatedId="269"/>
+  <map modelId="48" generatedId="268"/>
+  <map modelId="38" generatedId="267" role="autom-next-state"/>
+  <map modelId="37" generatedId="266"/>
+  <map modelId="36" generatedId="265"/>
+  <map modelId="35" generatedId="264"/>
+  <map modelId="34" generatedId="263"/>
+  <map modelId="33" generatedId="262"/>
+  <map modelId="32" generatedId="261"/>
+  <map modelId="31" generatedId="260"/>
+  <map modelId="30" generatedId="259"/>
+  <map modelId="29" generatedId="258"/>
+  <map modelId="28" generatedId="257"/>
+  <map modelId="27" generatedId="256"/>
+  <map modelId="26" generatedId="255"/>
+  <map modelId="25" generatedId="254"/>
+  <map modelId="24" generatedId="253"/>
+  <map modelId="23" generatedId="252"/>
+  <map modelId="20" generatedId="251" role="context-type"/>
+  <map modelId="20" generatedId="243" role="interface-file"/>
+  <map modelId="20" generatedId="248" role="cycle-method"/>
+  <map modelId="123" generatedId="275" role="context-parameter"/>
+  <map modelId="123" generatedId="274" role="init-method"/>
+  <map modelId="123" generatedId="277" role="context-parameter"/>
+  <map modelId="123" generatedId="276" role="reset-method"/>
+  <map modelId="126" generatedId="281"/>
+  <map modelId="125" generatedId="280"/>
+  <map modelId="124" generatedId="279"/>
+  <map modelId="123" generatedId="282" role="context-parameter"/>
+  <map modelId="159" generatedId="305"/>
+  <map modelId="158" generatedId="304"/>
+  <map modelId="157" generatedId="303"/>
+  <map modelId="154" generatedId="302"/>
+  <map modelId="150" generatedId="301"/>
+  <map modelId="146" generatedId="300"/>
+  <map modelId="144" generatedId="299" role="autom-next-state"/>
+  <map modelId="141" generatedId="298"/>
+  <map modelId="140" generatedId="297"/>
+  <map modelId="139" generatedId="296"/>
+  <map modelId="138" generatedId="295"/>
+  <map modelId="137" generatedId="294"/>
+  <map modelId="136" generatedId="293"/>
+  <map modelId="135" generatedId="292"/>
+  <map modelId="134" generatedId="291"/>
+  <map modelId="133" generatedId="290"/>
+  <map modelId="132" generatedId="289"/>
+  <map modelId="131" generatedId="288"/>
+  <map modelId="130" generatedId="287"/>
+  <map modelId="129" generatedId="286"/>
+  <map modelId="128" generatedId="285"/>
+  <map modelId="127" generatedId="284"/>
+  <map modelId="123" generatedId="283" role="context-type"/>
+  <map modelId="123" generatedId="273" role="interface-file"/>
+  <map modelId="123" generatedId="278" role="cycle-method"/>
+  <map modelId="217" generatedId="308" role="context-parameter"/>
+  <map modelId="217" generatedId="307" role="init-method"/>
+  <map modelId="217" generatedId="310" role="context-parameter"/>
+  <map modelId="217" generatedId="309" role="reset-method"/>
+  <map modelId="218" generatedId="312"/>
+  <map modelId="217" generatedId="313" role="context-parameter"/>
+  <map modelId="242" generatedId="328"/>
+  <map modelId="231" generatedId="327" role="autom-next-state"/>
+  <map modelId="230" generatedId="326"/>
+  <map modelId="229" generatedId="325"/>
+  <map modelId="228" generatedId="324"/>
+  <map modelId="227" generatedId="323"/>
+  <map modelId="226" generatedId="322"/>
+  <map modelId="225" generatedId="321"/>
+  <map modelId="224" generatedId="320"/>
+  <map modelId="223" generatedId="319"/>
+  <map modelId="222" generatedId="318"/>
+  <map modelId="221" generatedId="317"/>
+  <map modelId="220" generatedId="316"/>
+  <map modelId="219" generatedId="315"/>
+  <map modelId="217" generatedId="314" role="context-type"/>
+  <map modelId="217" generatedId="306" role="interface-file"/>
+  <map modelId="217" generatedId="311" role="cycle-method"/>
+  <map modelId="191" generatedId="331" role="context-parameter"/>
+  <map modelId="191" generatedId="330" role="init-method"/>
+  <map modelId="191" generatedId="333" role="context-parameter"/>
+  <map modelId="191" generatedId="332" role="reset-method"/>
+  <map modelId="192" generatedId="335"/>
+  <map modelId="191" generatedId="336" role="context-parameter"/>
+  <map modelId="216" generatedId="351"/>
+  <map modelId="205" generatedId="350" role="autom-next-state"/>
+  <map modelId="204" generatedId="349"/>
+  <map modelId="203" generatedId="348"/>
+  <map modelId="202" generatedId="347"/>
+  <map modelId="201" generatedId="346"/>
+  <map modelId="200" generatedId="345"/>
+  <map modelId="199" generatedId="344"/>
+  <map modelId="198" generatedId="343"/>
+  <map modelId="197" generatedId="342"/>
+  <map modelId="196" generatedId="341"/>
+  <map modelId="195" generatedId="340"/>
+  <map modelId="194" generatedId="339"/>
+  <map modelId="193" generatedId="338"/>
+  <map modelId="191" generatedId="337" role="context-type"/>
+  <map modelId="191" generatedId="329" role="interface-file"/>
+  <map modelId="191" generatedId="334" role="cycle-method"/>
+  <map modelId="160" generatedId="354" role="context-parameter"/>
+  <map modelId="160" generatedId="353" role="init-method"/>
+  <map modelId="160" generatedId="356" role="context-parameter"/>
+  <map modelId="160" generatedId="355" role="reset-method"/>
+  <map modelId="161" generatedId="358"/>
+  <map modelId="160" generatedId="359" role="context-parameter"/>
+  <map modelId="185" generatedId="374"/>
+  <map modelId="174" generatedId="373" role="autom-next-state"/>
+  <map modelId="173" generatedId="372"/>
+  <map modelId="172" generatedId="371"/>
+  <map modelId="171" generatedId="370"/>
+  <map modelId="170" generatedId="369"/>
+  <map modelId="169" generatedId="368"/>
+  <map modelId="168" generatedId="367"/>
+  <map modelId="167" generatedId="366"/>
+  <map modelId="166" generatedId="365"/>
+  <map modelId="165" generatedId="364"/>
+  <map modelId="164" generatedId="363"/>
+  <map modelId="163" generatedId="362"/>
+  <map modelId="162" generatedId="361"/>
+  <map modelId="160" generatedId="360" role="context-type"/>
+  <map modelId="160" generatedId="352" role="interface-file"/>
+  <map modelId="160" generatedId="357" role="cycle-method"/>
+  <map modelId="186" generatedId="377" role="context-parameter"/>
+  <map modelId="186" generatedId="376" role="init-method"/>
+  <map modelId="186" generatedId="379" role="context-parameter"/>
+  <map modelId="186" generatedId="378" role="reset-method"/>
+  <map modelId="187" generatedId="381"/>
+  <map modelId="186" generatedId="382" role="context-parameter"/>
+  <map modelId="190" generatedId="386" role="memory"/>
+  <map modelId="189" generatedId="385"/>
+  <map modelId="188" generatedId="384"/>
+  <map modelId="186" generatedId="383" role="context-type"/>
+  <map modelId="186" generatedId="375" role="interface-file"/>
+  <map modelId="186" generatedId="380" role="cycle-method"/>
+  <map modelId="110" generatedId="396"/>
+  <map modelId="122" generatedId="396"/>
+  <map modelId="109" generatedId="395"/>
+  <map modelId="119" generatedId="395"/>
+  <map modelId="108" generatedId="394"/>
+  <map modelId="116" generatedId="394"/>
+  <map modelId="107" generatedId="393"/>
+  <map modelId="113" generatedId="393"/>
+  <map modelId="106" generatedId="392"/>
+  <map modelId="105" generatedId="391"/>
+  <map modelId="104" generatedId="390"/>
+  <map modelId="103" generatedId="389"/>
+  <map modelId="102" generatedId="387" role="interface-file"/>
+  <map modelId="102" generatedId="388" role="cycle-method"/>
+  <map modelId="89" generatedId="406"/>
+  <map modelId="101" generatedId="406"/>
+  <map modelId="88" generatedId="405"/>
+  <map modelId="98" generatedId="405"/>
+  <map modelId="87" generatedId="404"/>
+  <map modelId="95" generatedId="404"/>
+  <map modelId="86" generatedId="403"/>
+  <map modelId="92" generatedId="403"/>
+  <map modelId="85" generatedId="402"/>
+  <map modelId="84" generatedId="401"/>
+  <map modelId="83" generatedId="400"/>
+  <map modelId="82" generatedId="399"/>
+  <map modelId="81" generatedId="397" role="interface-file"/>
+  <map modelId="81" generatedId="398" role="cycle-method"/>
+  <map modelId="67" generatedId="416"/>
+  <map modelId="79" generatedId="416"/>
+  <map modelId="66" generatedId="415"/>
+  <map modelId="76" generatedId="415"/>
+  <map modelId="65" generatedId="414"/>
+  <map modelId="73" generatedId="414"/>
+  <map modelId="64" generatedId="413"/>
+  <map modelId="70" generatedId="413"/>
+  <map modelId="63" generatedId="412"/>
+  <map modelId="62" generatedId="411"/>
+  <map modelId="61" generatedId="410"/>
+  <map modelId="60" generatedId="409"/>
+  <map modelId="59" generatedId="407" role="interface-file"/>
+  <map modelId="59" generatedId="408" role="cycle-method"/>
+  <map modelId="19" generatedId="431"/>
+  <map modelId="18" generatedId="430"/>
+  <map modelId="17" generatedId="429"/>
+  <map modelId="16" generatedId="433"/>
+  <map modelId="174" generatedId="474" role="autom-transitions-type"/>
+  <map modelId="174" generatedId="471" role="autom-states-type"/>
+  <map modelId="205" generatedId="468" role="autom-transitions-type"/>
+  <map modelId="205" generatedId="465" role="autom-states-type"/>
+  <map modelId="231" generatedId="462" role="autom-transitions-type"/>
+  <map modelId="231" generatedId="459" role="autom-states-type"/>
+  <map modelId="142" generatedId="457" role="autom-transitions-type"/>
+  <map modelId="142" generatedId="455" role="autom-states-type"/>
+  <map modelId="144" generatedId="450" role="autom-transitions-type"/>
+  <map modelId="144" generatedId="446" role="autom-states-type"/>
+  <map modelId="38" generatedId="438" role="autom-transitions-type"/>
+  <map modelId="38" generatedId="434" role="autom-states-type"/>
+  <map modelId="1" generatedId="432"/>
+  <map modelId="3" generatedId="512"/>
+  <map modelId="2" generatedId="511"/>
+  <map modelId="13" generatedId="509"/>
+  <map modelId="12" generatedId="510"/>
+  <map modelId="14" generatedId="508"/>
+  <map modelId="11" generatedId="507"/>
+  <map modelId="10" generatedId="506"/>
+  <map modelId="9" generatedId="505"/>
+  <map modelId="8" generatedId="504"/>
+  <map modelId="7" generatedId="503"/>
+  <map modelId="6" generatedId="502"/>
+  <map modelId="5" generatedId="501"/>
+  <map modelId="4" generatedId="500"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2020-05-21T13:10:54
+*************************************************************$-->

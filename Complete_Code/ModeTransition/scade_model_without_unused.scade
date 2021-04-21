@@ -1,0 +1,205 @@
+
+package TrafficLightController
+
+   type
+      #pragma ed <Type oid="!ed/2d1f/7CB/1D60/5edf1dbf2773"/>
+#end
+
+TRAFFIC_MODE_Type = enum {#pragma ed <Constant oid="!ed/2d21/7CB/1D60/5edf1e087153"/>
+#end
+AUTOMATIC_MODE, #pragma ed <Constant oid="!ed/2d22/7CB/1D60/5edf1e372780"/>
+#end
+MANUAL_MODE};
+
+node #pragma ed <Operator oid="!ed/240a/7CB/1D60/5edf0e9c21b5">
+	<diagrams>
+		<NetDiagram name="ModeTransition_1" landscape="true" format="A4 (210 297)" oid="!ed/240b/7CB/1D60/5edf0e9c5a1b">
+			<presentationElements>
+				<StateMachineGE presentable="!ed/2cba/7CB/1D60/5edf1c3eb94">
+					<position>
+						<Point x="0" y="159"/>
+					</position>
+					<size>
+						<Size width="22357" height="5979"/>
+					</size>
+				</StateMachineGE>
+				<StateGE presentable="!ed/2cbf/7CB/1D60/5edf1c545270">
+					<position>
+						<Point x="132" y="423"/>
+					</position>
+					<size>
+						<Size width="9128" height="4948"/>
+					</size>
+				</StateGE>
+				<StateGE presentable="!ed/2cc7/7CB/1D60/5edf1c6f41b1">
+					<position>
+						<Point x="12674" y="476"/>
+					</position>
+					<size>
+						<Size width="9392" height="4948"/>
+					</size>
+				</StateGE>
+				<TransitionGE presentable="!ed/2dec/7CB/1D60/5edf1ff44795">
+					<positions>
+						<Point x="9260" y="1455"/>
+						<Point x="10160" y="953"/>
+						<Point x="11404" y="1349"/>
+						<Point x="12674" y="1746"/>
+					</positions>
+					<labelSize>
+						<Size width="4366" height="370"/>
+					</labelSize>
+					<labelPos>
+						<Point x="9260" y="264"/>
+					</labelPos>
+					<slashPos>
+						<Point x="12832" y="264"/>
+					</slashPos>
+				</TransitionGE>
+				<TransitionGE presentable="!ed/2ded/7CB/1D60/5edf1ff878c6">
+					<positions>
+						<Point x="12674" y="4180"/>
+						<Point x="11245" y="5265"/>
+						<Point x="10266" y="4974"/>
+						<Point x="9260" y="4657"/>
+					</positions>
+					<labelSize>
+						<Size width="4445" height="370"/>
+					</labelSize>
+					<labelPos>
+						<Point x="8811" y="5344"/>
+					</labelPos>
+					<slashPos>
+						<Point x="12462" y="5344"/>
+					</slashPos>
+				</TransitionGE>
+				<EquationGE kind="OBJ_LIT" presentable="!ed/2dfa/7CB/1D60/5edf2005a6a">
+					<position>
+						<Point x="2461" y="2540"/>
+					</position>
+					<size>
+						<Size width="212" height="317"/>
+					</size>
+				</EquationGE>
+				<EquationGE presentable="!ed/2e15/7CB/1D60/5edf20291232">
+					<position>
+						<Point x="7805" y="2434"/>
+					</position>
+					<size>
+						<Size width="318" height="502"/>
+					</size>
+				</EquationGE>
+				<EquationGE presentable="!ed/2e1b/7CB/1D60/5edf202d7488">
+					<position>
+						<Point x="20796" y="2593"/>
+					</position>
+					<size>
+						<Size width="318" height="502"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/2dfa/7CB/1D60/5edf2005a6a" dstEquation="!ed/2e15/7CB/1D60/5edf20291232">
+					<positions>
+						<Point x="2672" y="2699"/>
+						<Point x="5265" y="2699"/>
+						<Point x="5265" y="2699"/>
+						<Point x="7858" y="2699"/>
+					</positions>
+				</Edge>
+				<EquationGE kind="OBJ_LIT" presentable="!ed/2e7c/7CB/1D60/5edf210f3e21">
+					<position>
+						<Point x="15875" y="2699"/>
+					</position>
+					<size>
+						<Size width="212" height="317"/>
+					</size>
+				</EquationGE>
+				<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/2e7c/7CB/1D60/5edf210f3e21" dstEquation="!ed/2e1b/7CB/1D60/5edf202d7488">
+					<positions>
+						<Point x="16087" y="2858"/>
+						<Point x="18468" y="2858"/>
+						<Point x="18468" y="2858"/>
+						<Point x="20849" y="2858"/>
+					</positions>
+				</Edge>
+			</presentationElements>
+		</NetDiagram>
+	</diagrams>
+</Operator>
+#end
+
+ModeTransition(
+      #pragma ed    <Variable oid="!ed/2e21/7CB/1D60/5edf20357ff1"/>
+#end
+
+AutoMode : bool; 
+      #pragma ed    <Variable oid="!ed/2e35/7CB/1D60/5edf204a6a3f"/>
+#end
+
+ManualMode : bool)
+returns (
+      #pragma ed    <Variable oid="!ed/2e05/7CB/1D60/5edf2017267f"/>
+#end
+
+MODE : TRAFFIC_MODE_Type)
+let
+   #pragma ed    <StateMachine oid="!ed/2cba/7CB/1D60/5edf1c3eb94"/>
+#end
+
+   automaton ModeTransition
+      initial       #pragma ed       <State oid="!ed/2cbf/7CB/1D60/5edf1c545270"/>
+#end
+
+state AutomaticMode
+      unless
+         #pragma ed          <Transition oid="!ed/2dec/7CB/1D60/5edf1ff44795"/>
+#end
+
+         if  #1  not AutoMode #2  and ManualMode
+            restart ManualMode;
+
+      var
+                  #pragma ed          <Variable oid="!ed/2dfb/7CB/1D60/5edf200539f9"/>
+#end
+
+_L1 : TRAFFIC_MODE_Type;
+      let
+         #pragma ed          <Equation oid="!ed/2dfa/7CB/1D60/5edf2005a6a"/>
+#end
+
+         _L1 = AUTOMATIC_MODE;
+         #pragma ed          <Equation oid="!ed/2e15/7CB/1D60/5edf20291232"/>
+#end
+
+         MODE = _L1;
+      tel
+            #pragma ed       <State oid="!ed/2cc7/7CB/1D60/5edf1c6f41b1"/>
+#end
+
+state ManualMode
+      unless
+         #pragma ed          <Transition oid="!ed/2ded/7CB/1D60/5edf1ff878c6"/>
+#end
+
+         if  #3  not ManualMode #4  and AutoMode
+            restart AutomaticMode;
+
+      var
+                  #pragma ed          <Variable oid="!ed/2e7d/7CB/1D60/5edf210f4278"/>
+#end
+
+_L1 : TRAFFIC_MODE_Type;
+      let
+         #pragma ed          <Equation oid="!ed/2e1b/7CB/1D60/5edf202d7488"/>
+#end
+
+         MODE = _L1;
+         #pragma ed          <Equation oid="!ed/2e7c/7CB/1D60/5edf210f3e21"/>
+#end
+
+         _L1 = MANUAL_MODE;
+      tel
+   returns .. ;
+tel
+
+   end;
+
